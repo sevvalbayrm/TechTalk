@@ -16,7 +16,7 @@ function sendToBackend(event) {
                 setTimeout(function() {
                     swal.fire({
                         title: 'Başarılı!',
-                        text: response.resultMessage,
+                        text: response.resultMessage+".",
                         icon: 'success',
                         confirmButtonText: 'Kapat'
                     }).then(function(){
@@ -28,7 +28,7 @@ function sendToBackend(event) {
             } else {
                 swal.fire({
                     title: 'Başarısız!',
-                    text: response.resultMessage,
+                    text: response.resultMessage+".",
                     icon: 'error',
                     confirmButtonText: 'Kapat'
                 })

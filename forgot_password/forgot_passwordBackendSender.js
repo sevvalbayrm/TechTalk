@@ -12,7 +12,7 @@ function sendToBackend(event) {
             if (xhr.status === 200 && response.success) {
                 swal.fire({
                     title: 'Başarılı!',
-                    text: response.resultMessage,
+                    text: response.resultMessage+".",
                     icon: 'success',
                     confirmButtonText: 'Kapat'
                 })
@@ -20,7 +20,7 @@ function sendToBackend(event) {
             } else {
                 swal.fire({
                     title: 'Başarısız!',
-                    text: response.resultMessage,
+                    text: response.resultMessage+".",
                     icon: 'error',
                     confirmButtonText: 'Kapat'
                 })
