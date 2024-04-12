@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Şifremi Unuttum</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="forgot_passwordBackendSender.js"></script>
+        <script src="../node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+        <link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.min.css">        
+    </head>
+
+    <body>
+        <header>
+            <h2 class="logo">TechTalk</h2>
+        </header>
+        
+        <div class="kart">
+
+            <div class="form-box login">
+
+                <h2>Şifremi Unuttum</h2>
+
+                <form action="#">
+
+                    <div class="input-box">
+                        <input id="email" type="email" placeholder="Email" required>
+                    </div>
+                   
+                    <button type="submit" class="btn" onclick="sendToBackend(event)">Gönder</button>
+
+                    <div class="kayıt">
+                        <p>Giriş Sayfasına Dön: <a href="../login/giris.html" class="kayıt-linki">Giriş Yap</a></p>
+                    </div>
+
+                    <div>
+                        <p id="resultMessage" style="display: none; color: green;"></p>
+                    </div>
+                    
+                </form>
+            </div>
+    
+        </div>
+    
+    
+    </body>
+</html>

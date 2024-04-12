@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Giriş Yap</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="loginBackendSender.js"></script>        
+    </head>
+
+    <body>
+        <header>
+            <h2 class="logo">TechTalk</h2>
+            
+        </header>
+        
+        <div class="kart">
+
+            <div class="form-box login">
+
+                <h2>Giriş</h2>
+                
+                <form action="#" onsubmit="sendToBackend(event)">
+
+                    <div class="input-box">
+                        <input id="username" type="text" placeholder="Username" required="">
+                    </div>
+
+                    <div class="input-box">
+                        <input id="password" type="password" placeholder="Password" required="">
+                    </div>
+
+                    <div class="forgot-password">
+                        <a href="../forgot_password/sifremi_unuttum.html">Şifreni Mi Unuttun?</a>
+                    </div>
+
+                    <button type="submit" class="btn">Giriş</button>
+
+                    <div class="kayıt">
+                        <p style="color: white;">Hesabınız Yok Mu? <a href="../register/kayıt.html" class="kayıt-linki">Kayıt Ol</a></p>
+                    </div>
+
+                </form>
+
+                <p id="errorMessage" style="color: red; display: none;">E-posta veya şifre yanlış.</p>
+
+            </div>
+
+        </div>
+    
+    
+    </body>
+
+</html>
