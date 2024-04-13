@@ -20,7 +20,7 @@ function sendToBackend(event) {
                         icon: 'success',
                         confirmButtonText: 'Kapat'
                     }).then(function(){
-                        window.location.href = '../Login/giris.html';  
+                        window.location.href = 'giris.html';  
                     })
                 }, 10);
                              

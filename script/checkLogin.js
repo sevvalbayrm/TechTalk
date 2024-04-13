@@ -30,12 +30,12 @@ function parseJwt(token) {
 }
 document.addEventListener('DOMContentLoaded', function() {
     var currentUrl = window.location.href
-    if (checkLoggedIn() && (currentUrl.includes("/login") || currentUrl.includes("/register"))) {
-            window.location.href = '../home.html';
+    if(checkLoggedIn() && (currentUrl.includes("/giris") || currentUrl.includes("/kayit"))) {
+            window.location.href = 'home.html';
          
     }
-    else if(!checkLoggedIn){
-        window.location.href = '../login/giris.html';
+    if(!checkLoggedIn() && (currentUrl.includes("/home"))){
+        window.location.href = 'giris.html';
         event.preventDefault(); // Sayfanın yeniden yüklenmesini engelle
     }
     {

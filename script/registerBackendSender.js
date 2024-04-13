@@ -17,7 +17,6 @@ function sendToBackend(event) {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             var response = JSON.parse(xhr.responseText);
             if (xhr.status === 200 && response.success) {
-                setTimeout(function() {
                     setTimeout(function() {
                         swal.fire({
                             title: 'Başarılı!',
@@ -25,12 +24,9 @@ function sendToBackend(event) {
                             icon: 'success',
                             confirmButtonText: 'Kapat'
                         }).then(function(){
-                            window.location.href = '../Login/giris.html';  
+                            window.location.href = 'giris.html';  
                         })
                     }, 10);
-                    
-                }, 3000); 
-                //popup 2 sn kalsın ondan sonra giriş sayfasına yönlendirsin
                 
             } else {
                 swal.fire({
