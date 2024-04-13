@@ -28,12 +28,18 @@ function parseJwt(token) {
 
     return JSON.parse(jsonPayload);
 }
-
 document.addEventListener('DOMContentLoaded', function() {
-    if (checkLoggedIn()) {
-        window.location.href = '/home.html';
-    } else {
-        window.location.href = '/giris.html';
+    var currentUrl = window.location.href
+    if (checkLoggedIn() && (currentUrl.includes("/login") || currentUrl.includes("/register"))) {
+            window.location.href = '../home.html';
+         
+    }
+    else if(!checkLoggedIn){
+        window.location.href = '../login/giris.html';
+        event.preventDefault(); // Sayfanın yeniden yüklenmesini engelle
+    }
+    {
+        
     }
 
 });
