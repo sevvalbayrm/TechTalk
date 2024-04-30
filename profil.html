@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+    <link rel="stylesheet" href="style/profil_style.css">
+    <script src="script/profileBackendConnector.js"></script>
+    <script src="script/checkLogin.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+
+</head>
+
+<body>
+    <form>
+        <div class="page-content page-container" id="page-content">
+            <div class="padding">
+                <div class="row container d-flex justify-content-center">
+                    <div class="col-xl-6 col-md-12">
+                        <div class="card user-card-full">
+                            <div class="row m-l-0 m-r-0">
+                                <div class="col-sm-4 bg-c-lite-green user-profile">
+                                    <div class="card-block text-center text-white">
+                                        <div class="m-b-25">
+                                            <img src="https://img.icons8.com/bubbles/100/000000/user.png"
+                                                class="img-radius" alt="User-Profile-Image">
+                                        </div>
+                                        <h6 class="f-w-600">AD SOYAD</h6>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="card-block">
+                                        <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Profil Bilgileri</h6>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Ad Soyad</p>
+                                                <h6 id="name" class="text-muted f-w-400"></h6>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Kullanıcı Adı</p>
+                                                <h6 id="username" class="text-muted f-w-400">KULLANICI ADI</h6>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Email</p>
+                                                <h6 id="email" class="text-muted f-w-400">EMAİLİ</h6>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Kayıt Tarihi</p>
+                                                <h6 id="createdate" class="text-muted f-w-400">TARİH</h6>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Seviye</p>
+                                                <!-- Burası büyük ihtimalle değişecek -->
+                                                <h6 id="point" class="text-muted f-w-400">SEVİYESİ</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

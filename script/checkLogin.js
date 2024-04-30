@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = 'home.html';
          
     }
-    if(!checkLoggedIn() && (currentUrl.includes("/home"))){
+    if(!checkLoggedIn() && (currentUrl.includes("/home") || currentUrl.includes("/profil"))){
         window.location.href = 'giris.html';
         event.preventDefault(); // Sayfanın yeniden yüklenmesini engelle
     }
