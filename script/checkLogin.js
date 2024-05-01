@@ -30,11 +30,13 @@ function parseJwt(token) {
 }
 document.addEventListener('DOMContentLoaded', function() {
     var currentUrl = window.location.href
+    //giriş yaptıysa ana sayfaya yönlendir
     if(checkLoggedIn() && (currentUrl.includes("/giris") || currentUrl.includes("/kayit"))) {
             window.location.href = 'home.html';
          
     }
-    if(!checkLoggedIn() && (currentUrl.includes("/home") || currentUrl.includes("/profil"))){
+    //giriş yapmadıysa girişe yönlendir
+    if(!checkLoggedIn() && (currentUrl.includes("/home"))){
         window.location.href = 'giris.html';
         event.preventDefault(); // Sayfanın yeniden yüklenmesini engelle
     }

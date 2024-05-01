@@ -1,10 +1,16 @@
-function getProfile(event) {
-    event.preventDefault();
-    
-    var token = localStorage.getItem('token')
-    var decodedToken = parseJwt(token); 
-    
-    username = decodedToken.sub;
+
+
+function getProfile() {
+    var currentUrl = window.location.href
+    var username = currentUrl.split("?=")[1];
+    if(username === undefined){
+        var token = localStorage.getItem('token')
+        var decodedToken = parseJwt(token);   
+        username = decodedToken.sub;
+    }
+
+  
+
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'http://localhost:8080/v1/profile/'+username, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
@@ -18,14 +24,14 @@ function getProfile(event) {
                 year: 'numeric',
               })
             if (xhr.status === 200 && response.success) {
-                console.log(response)
                 document.getElementById('name').innerHTML = user.name + " " + user.surname;
                 document.getElementById('username').innerHTML = response.user.username;
                 document.getElementById('email').innerHTML = user.email;
                 document.getElementById('createdate').innerHTML = createdDate;
                 document.getElementById('point').innerHTML = user.point;
+                document.getElementById('level').innerHTML = user.level
             } else {
-
+                document.getElementById('errormsg').innerHTML = ""
             }
         }
     };
@@ -44,6 +50,7 @@ function parseJwt(token) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    getProfile(event);
+    getProfile();
+    
 
 });
