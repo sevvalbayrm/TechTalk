@@ -2,7 +2,7 @@
 
 function getProfile() {
     var currentUrl = window.location.href
-    var username = currentUrl.split("?=")[1];
+    var username = currentUrl.split("?username=")[1];
     if(username === undefined){
         var token = localStorage.getItem('token')
         var decodedToken = parseJwt(token);   

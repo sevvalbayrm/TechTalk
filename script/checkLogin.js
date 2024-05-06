@@ -40,8 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = 'giris.html';
         event.preventDefault(); // Sayfanın yeniden yüklenmesini engelle
     }
-    {
-        
+    // giriş yapmadıysa ve kendi hesabına ait profili görüntülemek istiyorsa girişe yönlendir.
+    if(!checkLoggedIn() && currentUrl.includes("/profil.html") && !currentUrl.includes("?username=")){
+        window.location.href = 'giris.html';
     }
 
 });
