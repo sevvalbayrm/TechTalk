@@ -8,6 +8,7 @@ function getSubject() {
             if (xhr.status === 200 && !Object.is(response,null)) {
                 var blockBody = document.getElementById("blockBody");
                 response.forEach(function(item) {
+                    console.log(item)
                     var newItem = document.createElement("div");
                     newItem.classList.add("item");
                     var createdDate = new Date(item.createdDate).toLocaleDateString('tr-TR', {
@@ -16,13 +17,13 @@ function getSubject() {
                         year: 'numeric',
                       })
                     newItem.innerHTML = `
-                        <div class="user-icon">${item.userIcon}</div>
+                        <div class="user-icon"><img src="${item.userIcon}" height="75px" width="75px"></img></div>
                         <div class="discuss-title">
-                            <a href="http://localhost:8081/konular.html/${item.id}">
+                            <a href="http://localhost:8081/konular.html?=${item.id}">
                                 ${item.topic}
                             </a>
                             <div class="minor">
-                                <a href="#"><span id="usernameLink" class="user-name">${item.username}</span></a>
+                                <a href="http://localhost:8081/profil.html?username=${item.username}"><span id="usernameLink" class="user-name">${item.username}</span></a>
                                 <span class="date">${createdDate}</span>
                             </div>
                         </div>
@@ -31,11 +32,6 @@ function getSubject() {
                         <div class="comment">${item.comment}</div>
                     `;
                     blockBody.appendChild(newItem);
-                    var usernameSpan = newItem.querySelector('.user-name');
-                    usernameSpan.addEventListener('click', function() {
-                        var username = item.username;
-                        window.location.href = '/profil.html?='+username;                       
-                    });
                 });
             } else {
 
