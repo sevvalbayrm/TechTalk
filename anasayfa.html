@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anasayfa</title>
+  <link rel="stylesheet" href="/style/anasayfa_style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <div id="navbar-placeholder"></div>
+ <hr>
+  <div class="sidebar">
+  
+  <ul>
+    <li><a href="#">Popüler Konular</a></li>
+  </ul>
+  <hr>
+  <ul id="populerKonularListesi">
+    <!-- Popüler konular buraya eklenecek -->
+  </ul>
+  </div>
+  <div class="content">
+    <!-- Ana içerik buraya gelecek -->
+  </div>
+
+  <footer>
+    <p>All rights are copyrighted © 2024 TechTalk Team.</p>
+</footer>
+
+<script src="script/headerFunctions.js"></script>
+
+</body>
+
+<script>
+
+  const populerKonular = [
+  { baslik: "Konu 1", link: "konu1.html" },
+  { baslik: "Konu 2", link: "konu2.html" },
+  { baslik: "Konu 3", link: "konu3.html" }
+];
+
+function populerKonulariGoster() {
+  const populerKonularListesi = document.getElementById('populerKonularListesi');
+
+  populerKonular.forEach(konu => {
+    const listItem = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = konu.link;
+    link.textContent = konu.baslik;
+    listItem.appendChild(link);
+    populerKonularListesi.appendChild(listItem);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', populerKonulariGoster);
+  </script>
+
+</html>

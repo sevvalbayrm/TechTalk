@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #c0c0c0;
+  }
+  
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background:  #570202;
+    color: #fff;
+  }
+  
+  .logo a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 15px;
+  }
+  
+  .actions {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .search {
+    padding: 8px 15px;
+    margin-right: 50px;
+    border-radius: 15px;
+    background-color: #f0eaf4;
+  }
+  
+  .login {
+    padding: 8px 15px;
+    margin-right: 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    display: inline-block;
+    
+  }
+
+  .logout {
+    padding: 8px 15px;
+    margin-right: 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .profile {
+    padding: 8px 15px;
+    margin-right: 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    display: inline-block;
+
+  }
+
+  .login a{
+    text-decoration: none;
+    color: #EEEEEE;
+  }
+
+  .profile a{
+    text-decoration: none;
+    color: #EEEEEE;
+  }
+
+  .logout a{
+    text-decoration: none;
+    color: #EEEEEE;
+  }
+  
+
+  .fa-solid  {
+    padding-right: 5px;
+    
+  }
+
+  .fa-regular{
+    padding-right: 3px;
+  }
+
+  .login :hover{
+    background-color: #7e4343;
+    padding: 10px 0 10px ;
+    border-radius: 15px;
+    
+  }
+
+  .logout :hover{
+    background-color: #7e4343;
+    padding: 10px 0 10px ;
+    border-radius: 15px;
+  }
+
+   .profile :hover{
+    background-color: #7e4343;
+    padding: 10px 0 10px ;
+    border-radius: 15px;
+  } 
+  
+  
+  .sidebar {
+    width: 15%;
+    height: 600px;
+    background: #570202;
+    padding: 20px;
+  }
+
+  .sidebar ul {
+    list-style-type: none;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 10px;
+    text-align: center;
+
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color: #EEEEEE;
+    font-weight: bold;
+    
+  }
+  
+  /* Content */
+  .content {
+    padding: 20px;
+   
+  }
+
+  #populerKonularListesi li {
+    margin-top: 20px;
+    margin-bottom: 10px; /* Her konu arasına biraz boşluk bırakır */
+    border-bottom: 1px solid #ccc; /* Her konunun altına bir çizgi ekler */
+    padding-bottom: 5px; /* Çizgi ile metin arasında biraz boşluk bırakır */
+  }
+
+  .sidebar hr {
+    width: 100%; /* Side bar genişliği kadar çizgi olacak şekilde ayarlanır */
+    height: 1px;
+    margin: 8px 0;
+  }
+ 
+
+  footer {
+    background-color: #6f6f6f;
+    color: #EEEEEE;
+    padding: 15px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+footer p {
+    margin: 0;
+}
+  

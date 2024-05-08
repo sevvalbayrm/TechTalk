@@ -3,31 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Arama sonucu</title>
     <link rel="stylesheet" href="style/arama-sonuç.css">
+    <script src="script/searchResultBackendConnector.js"></script>
 </head>
 <body>
+    <div id="navbar-placeholder"></div>
     <div class="container">
         <div class="body">
-            <div class="subject-header">Konular hakkında bulunan sonuçlar: 
-                <span class="count">5</span>
+            <div id="subjectHeader" class="subject-header">Konular hakkında bulunan sonuçlar: 
+                <span class="count"><!--buraya arama sonucu toplam sayı--></span>
             </div>
-            <div class="subject-result">
-               <div class="subject"><a href="#">Konu</a></div> 
-               <div class="subject"><a href="#">Konu</a></div> 
-               <div class="subject"><a href="#">Konu</a></div> 
-               <div class="subject"><a href="#">Konu</a></div> 
-               <div class="subject"><a href="#">Konu</a></div> 
+            <div id="subjectResult" class="subject-result">
+                <div id="subjectNotFound" style="display: none; text-align: center; padding-top: 1%; font-size: large; ">Aramayla ilgili konu bulunamadı...</div>
             </div>
             <div class="space"></div>
-            <div class="users-header">Kullanıcılar hakkında bulunan sonuçlar:
-                <span class="count">2</span>
+            <div id="usersHeader" class="users-header">Kullanıcılar hakkında bulunan sonuçlar:
+                <span class="count"><!--buraya arama sonucu toplam sayı--></span>
             </div>
-            <div class="users-result">
-                <div class="user"><a href="#">Kullanıcı</a></div>
-                <div class="user"><a href="#">Kullanıcı</a></div>
+            <div id="usersResult" class="users-result">
+                <div id="userNotFound" style="display: none; text-align: center; padding-top: 1%; font-size: large; ">Aramayla ilgili kullanıcı bulunamadı...</div>
             </div>
         </div>
     </div>
+    <script src="script/headerFunctions.js"></script>
+
 </body>
 </html>

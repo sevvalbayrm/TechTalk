@@ -32,11 +32,11 @@ document.addEventListener('DOMContentLoaded', function() {
     var currentUrl = window.location.href
     //giriş yaptıysa ana sayfaya yönlendir
     if(checkLoggedIn() && (currentUrl.includes("/giris") || currentUrl.includes("/kayit"))) {
-            window.location.href = 'home.html';
+            window.location.href = 'anasayfa.html';
          
     }
     //giriş yapmadıysa girişe yönlendir
-    if(!checkLoggedIn() && (currentUrl.includes("/home"))){
+    if(!checkLoggedIn() && (currentUrl.includes("/anasayfa"))){
         window.location.href = 'giris.html';
         event.preventDefault(); // Sayfanın yeniden yüklenmesini engelle
     }
