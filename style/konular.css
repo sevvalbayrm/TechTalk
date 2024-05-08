@@ -22,9 +22,12 @@
 }
 
 .block-body {
-    display: table;
+    display: inline-table;
     width: 100%;
-    text-align: center; 
+    text-align: center;
+    vertical-align: middle;
+    padding: 20px 0; 
+    height: 50%;
 }
 
 .discuss-title a{
@@ -34,6 +37,8 @@
     padding: 0;
     color: #0E46A3;
     text-decoration: none;
+    vertical-align: text-top;
+    
 }
 
 .discuss-title a:hover{
@@ -42,13 +47,19 @@
 
 .minor {
     font-size: 12px; 
-    
+    text-align: center;
 }
 
 .minor ul {
     list-style: none; 
     padding: 0; 
     margin: 0; 
+    
+}
+
+.user-icon img{
+    height: 50px;
+    width: 50px;
     
 }
 
@@ -70,14 +81,19 @@
 }
 
 
-.item {
+.item  {
     display: table-row;
     background-color: #f0f0f0; 
+    
+    
+    
 }
 
 .item > div {
     display: table-cell;
     padding: 10px;
-    border-bottom: 1px solid #ccc; 
+    border-bottom: 1px solid #ccc;
+    vertical-align: middle; 
 }
+
 
