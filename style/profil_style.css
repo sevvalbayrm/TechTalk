@@ -1,5 +1,5 @@
 body{
-    background-color: #f9f9fa
+    background-color: #c0c0c0;
     
 }
 
@@ -11,10 +11,6 @@ body{
     margin: 0 auto; /* Sayfanın ortasında olmasını sağlar */
 }
 
-.col-sm-8{
-    background-color: #c0c0c0; 
- }
-
 .card {
     border-radius: 5px;
     -webkit-box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
@@ -25,6 +21,10 @@ body{
     margin-top: 100px;
     
 }
+ .col-sm-8{
+    background-color: #c0c0c0;
+ 
+ }
 
 .m-r-0 {
     margin-right: 0px;
@@ -39,27 +39,50 @@ body{
 }
 
 .bg-c-lite-green {
-    background: linear-gradient(to right, #C3BEF0, #DEFCF9,#DCD6F7);
-    width: 800px;
+    background: linear-gradient(to right, #570202,#7e4343, #7e4343,#570202);
+   
     
 }
 
 .user-profile {
     padding: 20px 0;
+
 }
 
 .card-block {
     padding: 1.25rem;
 }
 
-.m-b-25 {
-    margin-bottom: 25px;
+.profile-container {
+    text-align: center;
+}
+.profileimage {
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Fotoğrafın kare boyutlarda kesilmesini sağlar */
+    border-radius: 10px; /* Kare görünümü için bir border radius ayarı */
+}
+.profile-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    display: inline-block;
 }
 
-.img-radius {
+
+
+.file-input {
+    display: none;
+}
+.file-label {
+    display: inline-block;
+    background-color: #7f4e4e;
+    color: #fff;
+    padding: 5px 10px;
     border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
 }
-
 
  
 h6 {
@@ -133,5 +156,11 @@ p {
     margin-top: 20px;
 }
 
+
+
+
+.m-t-40 {
+    margin-top: 20px;
+}
 
 
