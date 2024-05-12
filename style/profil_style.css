@@ -8,8 +8,6 @@ body{
 }
 
 .user-card-full {
-    overflow: hidden;
-    width: 800px; 
     margin: 0 auto; /* Sayfanın ortasında olmasını sağlar */
 }
 
