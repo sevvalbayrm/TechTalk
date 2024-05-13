@@ -1,7 +1,8 @@
 function showSearchResult() {
     
-    var currentUrl = window.location.href
-    var searchQuery = currentUrl.split("?search=")[1];
+    var currentUrl = window.location.href;
+    var searchQueryEncoded = currentUrl.split("?search=")[1];
+    var searchQuery = decodeURIComponent(searchQueryEncoded);
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'http://localhost:8080/v1/search/'+searchQuery, true);
     xhr.setRequestHeader('Content-Type', 'application/json');

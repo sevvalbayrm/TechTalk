@@ -66,7 +66,8 @@ document.addEventListener("DOMContentLoaded",function() {
         if (event.target.id === 'searchInput' && event.key === 'Enter') {
             event.preventDefault();
             var query = event.target.value;
-            window.location.href = "http://localhost:8081/arama_sonucları.html?search="+query
+            var searchQuery = encodeURIComponent(query);
+            window.location.href = "http://localhost:8081/arama_sonucları.html?search="+searchQuery;
         }
     });
 
