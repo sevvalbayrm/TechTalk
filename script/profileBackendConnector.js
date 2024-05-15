@@ -17,6 +17,7 @@ function getProfile() {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             var response = JSON.parse(xhr.responseText);
+            console.log(response);
             var user = response.user
             var createdDate = new Date(user.createdDate).toLocaleDateString('tr-TR', {
                 day: '2-digit',
@@ -29,7 +30,7 @@ function getProfile() {
                 document.getElementById('email').innerHTML = user.email;
                 document.getElementById('createdate').innerHTML = createdDate;
                 document.getElementById('point').innerHTML = user.point;
-                document.getElementById('level').innerHTML = user.level
+                document.getElementById('title').innerHTML = user.title;
             } else {
                 document.getElementById('errormsg').innerHTML = ""
             }
