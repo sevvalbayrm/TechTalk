@@ -1,10 +1,5 @@
 body{
     background-color: #c0c0c0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    
 }
 
 .padding {
