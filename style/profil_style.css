@@ -137,4 +137,10 @@ p {
     margin-bottom: 10px;
 }
 
+.changePasswordButton {
+    margin-top: 20px;
+    background-color: #e0dede;
+    color: #570202;
+    border-radius: 5px;
+}
 
