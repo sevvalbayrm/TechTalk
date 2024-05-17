@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Şifre Değiştir</title>
+        <link rel="stylesheet" href="/style/style.css">
+        <script src="script/changePasswordBackendConnector.js"></script>
+        <script src="/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+        <link rel="stylesheet" href="/node_modules/sweetalert2/dist/sweetalert2.min.css">     
+
+
+        
+    </head>
+
+    <body>
+        <header>
+            <a href="anasayfa.html" style="text-decoration: none;"><h2 class="logo">TechTalk</h2></a>
+        </header>
+        
+        <div class="kart">
+
+            <div class="form-box login">
+
+                <h2>Şifre Değiştir</h2>
+
+                <form action="#" onsubmit="changePassword(event)">
+
+                    <div class="input-box">
+                        <input type="password" id="oldPassword"  placeholder="Eski Şifre" required>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password"  id="newPassword" placeholder="Yeni Şifre" required>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password" id="confirmPassword" placeholder="Yeni Şifre Tekrar" required>
+                    </div>                   
+                    <button type="submit" class="btn">Gönder</button>                    
+                </form>
+                <p id="message" class="p"></p>
+            </div>
+    
+        </div>
+    
+    
+    </body>
+</html>
