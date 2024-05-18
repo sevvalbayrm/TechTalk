@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+.subject-main{
+    width: 70%;
+    height: auto;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.page-header{
+    border: 1px solid #B4B4B8;
+    vertical-align: middle;
+    text-align: left;
+    border-radius: 5px; 
+}
+
+.page-header h1{
+    padding-left: 30px;
+    margin: 0px;
+}
+
+ul{
+    padding-left: 30px;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+    font-size: 14px;
+    padding: 0 5px 0;
+    margin: 0 10px 0 0;
+}
+
+.minor-list img{
+    display: inline-block;
+    height: 14px; 
+    width: auto; 
+    vertical-align: middle;
+}
+
+.message{
+    margin-top: 10px;
+    border: solid 1px #B4B4B8;
+    border-radius: 5px;
+    font-weight: 100px;
+}
+
+.message >div{
+    display: inline-block;
+}
+
+.message-user{
+    text-align: center;
+    padding: 10px;
+    border-right: solid 1px #B4B4B8;
+}
+
+.user-name a{
+    text-decoration: none;
+    color: #B4B4B8;
+    
+}
+
+.user-name a:hover{
+    text-decoration: underline;
+    color: black;
+}
+
+.message-user .user-ico img{
+    height: 60px;
+    width: 60px;
+}
+
+.message-main{
+    padding: 10px;
+    position: absolute;
+}
+
+.message-main header{
+    padding-bottom: 10px;
+    font-size: small;
+    color: #B4B4B8;
+}
