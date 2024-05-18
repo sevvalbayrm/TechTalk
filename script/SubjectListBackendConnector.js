@@ -29,7 +29,7 @@ function getSubject() {
                         </div>
                         <div class="discuss-topic">${item.tag}</div>
                         <div class="like">${item.likeCount}</div>
-                        <div class="comment">${item.comment}</div>
+                        <div class="comment">${item.commentCount}</div>
                     `;
                     blockBody.appendChild(newItem);
                       }

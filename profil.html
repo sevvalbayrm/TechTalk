@@ -26,12 +26,15 @@
                             <div class="row m-l-0 m-r-0">
                                 <div class="col-sm-4 bg-c-lite-green user-profile">
                                     <div class="card-block text-center text-white">
-                                        <div class="m-b-25">
-                                            <img src="https://img.icons8.com/bubbles/100/000000/user.png"
-                                                class="img-radius" alt="User-Profile-Image">
+                                        <div id="profileContainer" class="profile-container">
+                                            <!-- profil fotoğrafı-->
+                                            <div class="profile-placeholder" id="profilePlaceholder">
+                                                <img id="profilePicture" src="style/Default_pfp.svg.png" alt="Default Profile" class="profileimage">
+                                            </div>
+                                            <!--Javascript ile bu alana fotoğraf değiştirme butonu ekleniyor.-->
                                         </div>
-                                        <p class="m-b-10 f-w-600">Seviye</p>
-                                        <h6 id="level" class="text-muted f-w-400"></h6>
+                                        <p class="m-b-10 f-w-600">Ünvan</p>
+                                        <h6 id="title" class="text-muted f-w-400"></h6>
                                     </div>
                                 </div>
                                 <div class="col-sm-8">
@@ -58,6 +61,9 @@
                                                 <p class="m-b-10 f-w-600">Puan</p>
                                                 <!-- Burası büyük ihtimalle değişecek -->
                                                 <h6 id="point" class="text-muted f-w-400">SEVİYESİ</h6>
+                                            </div>
+                                            <div id="changePasswordButtonDiv" class="col-sm-6">
+                                                <!-- <button type="button" class="changePasswordButton" id="changePasswordButton">Şifre Değiştir</button> -->
                                             </div>
                                         </div>
                                     </div>

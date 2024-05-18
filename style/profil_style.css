@@ -1,6 +1,5 @@
 body{
     background-color: #c0c0c0;
-    
 }
 
 .padding {
@@ -70,7 +69,6 @@ body{
 }
 
 
-
 .file-input {
     display: none;
 }
@@ -84,14 +82,11 @@ body{
     margin-top: 5px;
 }
 
- 
+
 h6 {
     font-size: 14px;
 }
 
-.card .card-block p {
-    line-height: 25px;
-}
 
 @media only screen and (min-width: 1400px){
 p {
@@ -107,9 +102,6 @@ p {
     border-bottom: 1px solid #A6B1E1;
 }
 
-.m-b-20 {
-    margin-bottom: 20px;
-}
 
 .p-b-5 {
     padding-bottom: 5px;
@@ -117,10 +109,6 @@ p {
 
 .card .card-block p {
     line-height: 25px;
-}
-
-.m-b-10 {
-    margin-bottom: 10px;
 }
 
 .text-muted {
@@ -144,23 +132,14 @@ p {
     margin-top: 20px;
 }
 
-.p-b-5 {
-    padding-bottom: 5px t;
-}
-
 .m-b-10 {
     margin-bottom: 10px;
 }
 
-.m-t-40 {
+.changePasswordButton {
     margin-top: 20px;
+    background-color: #e0dede;
+    color: #570202;
+    border-radius: 5px;
 }
-
-
-
-
-.m-t-40 {
-    margin-top: 20px;
-}
-
 

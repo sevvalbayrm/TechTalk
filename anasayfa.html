@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script src="script/subjectListMPI.js"></script>
   <script src="script/SubjectListBackendConnector.js"></script>
+  <script src="script/popularSubjectPopulater.js"></script>
+  
 </head>
 
 <body>
@@ -35,29 +37,4 @@
 <script src="script/headerFunctions.js"></script>
 
 </body>
-
-<script>
-
-  const populerKonular = [
-  { baslik: "Konu 1", link: "konu1.html" },
-  { baslik: "Konu 2", link: "konu2.html" },
-  { baslik: "Konu 3", link: "konu3.html" }
-];
-
-function populerKonulariGoster() {
-  const populerKonularListesi = document.getElementById('populerKonularListesi');
-
-  populerKonular.forEach(konu => {
-    const listItem = document.createElement('li');
-    const link = document.createElement('a');
-    link.href = konu.link;
-    link.textContent = konu.baslik;
-    listItem.appendChild(link);
-    populerKonularListesi.appendChild(listItem);
-  });
-}
-
-document.addEventListener('DOMContentLoaded', populerKonulariGoster);
-  </script>
-
 </html>
