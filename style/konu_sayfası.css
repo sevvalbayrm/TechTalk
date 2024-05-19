@@ -28,6 +28,15 @@ ul{
     padding-left: 30px;
 }
 
+.minor-user {
+    text-decoration: none;
+    color: black;
+}
+
+.minor-user:hover{
+    text-decoration: underline;
+}
+
 li {
     list-style: none;
     display: inline-block;
@@ -79,10 +88,34 @@ li {
 .message-main{
     padding: 10px;
     position: absolute;
+    height: max-content;
+    
 }
 
 .message-main header{
     padding-bottom: 10px;
     font-size: small;
     color: #B4B4B8;
+}
+
+.like-section{
+    margin-top: 40%;
+    display: flex;
+    align-items: end;
+}
+
+.like-image{
+    width: 24px;
+    height: auto;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.like-count{
+    font-size: 16px;
+    
+}
+
+.like-image.liked {
+    filter: grayscale(0);
 }
