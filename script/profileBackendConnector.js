@@ -29,37 +29,50 @@ function createChangePasswordButton(){
 
     changePasswordButtonDiv.appendChild(btn);
 }
-function convertFileToUrl(file) {
+function convertFileToBlob(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.onload = () => {
-            const imageUrl = reader.result;
-            resolve(imageUrl);
+            const arrayBuffer = reader.result;
+            const blob = new Blob([new Uint8Array(arrayBuffer)], { type: file.type });
+            resolve(blob);
         };
         reader.onerror = reject;
-        reader.readAsDataURL(file);
+        reader.readAsArrayBuffer(file);
     });
 }
 
-function changePfp(imgURL){
-    username = parseJwt(localStorage.getItem('token')).sub;
-    url = imgURL;
+function changePfp(file) {
+    convertFileToBlob(file)
+        .then(blob => {
+            const username = parseJwt(localStorage.getItem('token')).sub;
+            const formData = new FormData();
+            formData.append('username', username);
+            formData.append('profilePhoto', blob, file.name);
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('PUT', 'http://localhost:8080/v1/profile/profile-photo', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onload= function() {
-        if (xhr.status >= 200 && xhr.status < 300) {
-           console.log("Profil resmi değişti.");
-        }
+            const xhr = new XMLHttpRequest();
+            xhr.open('PUT', 'http://localhost:8080/v1/profile/profile-photo', true);
+            xhr.onload = function() {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    console.log("Profil resmi değişti.");
+                } else {
+                    console.error("Profil resmi değiştirilemedi.", xhr.responseText);
+                }
+            };
+            xhr.onerror = function() {
+                console.error("Profil resmi değiştirilemedi.", xhr.responseText);
+            };
+            xhr.send(formData);
+        })
+        .catch(error => {
+            console.error("Failed to convert file to Blob:", error);
+        });
 }
-    xhr.send(JSON.stringify({username,url}));
-}
-
 function getProfile() {
     var currentUrl = window.location.href
     var username = currentUrl.split("?username=")[1];
-    if(username === parseJwt(localStorage.getItem('token')).sub){
+    var tokenUsername = parseJwt(localStorage.getItem('token')).sub
+    if(username === tokenUsername){
         // Kullanıcının kendi profiline link aracılığıyla yönlendirildiği senaryo. Link içerisinde username gönderiliyor.
         createChangePasswordButton();
         createPfpChangeButton();
@@ -73,7 +86,6 @@ function getProfile() {
         createChangePasswordButton();
     }
     
-
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'http://localhost:8080/v1/profile/'+username, true);
@@ -108,6 +120,9 @@ function getProfile() {
 
 
 function parseJwt(token) {
+    if(token === null){
+        return false;
+    }
     var base64Url = token.split('.')[1];
     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
     var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
@@ -122,9 +137,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const fileInput = document.getElementById('profilePictureInput');
     fileInput.addEventListener('change', async (event) => {
        const file = event.target.files[0];
-       const imageUrl = await convertFileToUrl(file);
-       changePfp(imageUrl);
-    })  
+       await changePfp(file);
+    });
     
 
 });

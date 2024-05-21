@@ -14,7 +14,7 @@ function getPopularSubjects() {
                 response.forEach(konu => {
                     const listItem = document.createElement('li');
                     const link = document.createElement('a');
-                    link.href = "http://localhost:8081/konu.html?id="+konu.id;
+                    link.href = "http://localhost:8081/konu_sayfası.html?id="+konu.id;
                     link.textContent = konu.topic;
                     listItem.appendChild(link);
                     populerKonularListesi.appendChild(listItem);

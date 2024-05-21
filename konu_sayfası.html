@@ -4,53 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/konu_sayfası.css">
-
+    <script src="script/subjectPageBackendConnector.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <div class="subject-main">
+    <div id="subjectMainId" class="subject-main">
         <div class="page-header">
             <div class="p-title">
-                <h1>Konu Başlığı</h1>
+                <h1 id="subjectTopic"></h1>
             </div>
             <div class="minor">
                 <ul class="minor-list">
                     <li>
                         <img class="user-ico" src="style/user.png" alt="user-ico">
-                        <a href="kullanıcı-profili" class="minor-user">Kullanıcı Adı</a>
+                        <a id="subjectUsername" href="" class="minor-user"></a>
                     </li>
                     <li>
                         <img class="clock-ico" src="style/clock.png" alt="clock-ico">
-                        <a class="minor-time">Time</a>
+                        <a id="createdDate" class="minor-time"></a>
                     </li>
                     <li>
                         <img class="tag-ico" src="style/tag.png" alt="clock-ico">
-                        <a class="minor-tag">Tag</a>
+                        <a id="tag" class="minor-tag"></a>
                     </li>
                 </ul>
-            </div>
-        </div>
-        <div class="message">
-            <div class="message-user">
-                <div class="user-ico">
-                    <img src="style/Default_pfp.svg.png" alt="default-pp">
-                </div>
-                <div class="user-name">
-                    <a href="kullanıcı-profili">Kullanıcı Adı</a>
-                </div>
-                <div class="user-title">
-                    <p class="ünvan">Yıldız Mareşali</p>
-                </div>
-            </div>
-            <div class="message-main">
-                <header>Yorum Tarihi</header>
-                <div class="comment">
-                    Yorumun geleceği yer.
-                </div>
-                <div class="like-section">
-                    <img class="like-image" src="style/thumbs-up.png" alt="like">
-                    <span class="like-count">0</span>
-                </div>        
             </div>
         </div>
     </div>
