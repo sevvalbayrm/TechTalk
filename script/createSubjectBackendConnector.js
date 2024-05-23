@@ -11,7 +11,6 @@ document.getElementById('createSubjectBtn').addEventListener('click', function(e
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             var response = JSON.parse(xhr.responseText);
-            console.log(response);
             if (xhr.status === 200 && response.success) {
 
             } else {

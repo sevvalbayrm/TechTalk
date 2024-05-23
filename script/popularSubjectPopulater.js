@@ -1,5 +1,3 @@
-
-
 function getPopularSubjects() {
 
     var xhr = new XMLHttpRequest();
@@ -9,7 +7,6 @@ function getPopularSubjects() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             var response = JSON.parse(xhr.responseText);
             var populerKonularListesi = document.getElementById('populerKonularListesi');
-            console.log(response)
             if (xhr.status === 200) {
                 response.forEach(konu => {
                     const listItem = document.createElement('li');
@@ -26,8 +23,33 @@ function getPopularSubjects() {
     };
     xhr.send();
 };
+
+
+function getLeaderboard(){
+    fetch('http://localhost:8080/v1/profile/leaderboard', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => response.json())
+    .then(data =>{
+        if(!Object.is(data,null)){
+            var leaderboard = document.getElementById('liderlikListesi');
+            data.forEach((user, index) => {
+                const listItem = document.createElement('li');
+                const usernameA = document.createElement('a');
+                usernameA.href = "http://localhost:8081/profil.html?username="+user.username;
+                usernameA.textContent = (index+1) + ". " + user.username + " - " + user.point;
+                listItem.appendChild(usernameA);
+                leaderboard.appendChild(listItem);
+            });
+        }
+})
+}
 document.addEventListener('DOMContentLoaded', function() {
     getPopularSubjects();
+    getLeaderboard();
     
 
 });

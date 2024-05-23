@@ -282,7 +282,6 @@ function parseJwt(token) {
 document.addEventListener('DOMContentLoaded', function () {
     getSubject()
         .then(response => {
-            console.log(response);
             var subject = response.subject;
             var comments = response.comments;
             return getUser(subject.username).then(user => ({ subject, comments, user }));

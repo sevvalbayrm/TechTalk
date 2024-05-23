@@ -145,7 +145,7 @@
   /* Content */
   .content {
     padding: 20px;
-   
+       
   }
 
   #populerKonularListesi li {
@@ -178,8 +178,8 @@ footer p {
   position: fixed;
   right: 20px;
   top: 200px; 
-  width: 200px; 
-  height: 300px;
+  width: 250px; 
+  height: 700px;
 }
 
 .reklam_container:hover {
