@@ -203,5 +203,23 @@ footer p {
   width: 250px; 
   height: 700px;
 }
+
+.konu_olustur {
+  position: fixed;
+  right: 80px;
+  top: 100px;
+  background-color: #7e4343;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.konu_olustur_btn {
+  color: #EEEEEE;
+  text-decoration: none;
+  font-size: 20px;
+}
+ 
   
   
