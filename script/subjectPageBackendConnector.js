@@ -220,10 +220,14 @@ function subjectLike(subjectId) {
         };
         xhr.send(JSON.stringify({ subjectId, username }));
     }
+    else{
+        console.log("GİRİŞ YAP")
+    }
 }
 
 function commentLike(commentId) {
-    var username = parseJwt(localStorage.getItem('token')).sub;
+    var token = localStorage.getItem('token');
+    var username = parseJwt(token).sub;
     if (username) {
         var xhr = new XMLHttpRequest();
         xhr.open('PUT', 'http://localhost:8080/v1/comment/like', true);
@@ -232,9 +236,12 @@ function commentLike(commentId) {
             if (xhr.status >= 200 && xhr.status < 300) {
                 console.log('Comment like successful');
                 updateCommentLikeCount(commentId);
+            } else {
             }
         };
-        xhr.send(JSON.stringify({ commentId, username }));
+        xhr.send(JSON.stringify({commentId,username}));
+    } else {
+        console.log("GİRİŞ YAP");
     }
 }
 
@@ -259,8 +266,7 @@ function updateCommentLikeCount(commentId) {
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = JSON.parse(xhr.responseText);
-            var comment = response.comment;
-            document.querySelector('.like-count.comment[data-comment-id="' + commentId + '"]').textContent = comment.likeCount;
+            document.querySelector('.like-count.comment[data-comment-id="' + response.id + '"]').textContent = response.likeCount;
         }
     };
     xhr.send();
@@ -284,6 +290,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => {
             var subject = response.subject;
             var comments = response.comments;
+            console.log(response)
             return getUser(subject.username).then(user => ({ subject, comments, user }));
         })
         .then(({ subject, comments, user }) => {
