@@ -17,18 +17,20 @@
                 <input type="text" id="title" name="title" required>
             </div>
             <div class="form-group">
-                <label for="title">Konu Tagi</label>
+                <label for="title">Konu Etiketi</label>
                 <input type="text" id="tag" name="tag" required>
+                <!-- BURASI INPUT FIELD DEĞİL DROPDOWN LIST OLACAK-->
             </div>
             <div class="form-group">
                 <label for="description">Konu Açıklaması</label>
                 <textarea id="description" name="description" rows="5" required></textarea>
             </div>
             <div class="form-group">
-                <button type="submit">Oluştur</button>
+                <button id="createSubjectBtn">Oluştur</button>
             </div>
         </form>
     </div>
+    <script src="script/createSubjectBackendConnector.js"></script>
 </body>
 
 </html>

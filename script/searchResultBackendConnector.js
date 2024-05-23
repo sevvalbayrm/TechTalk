@@ -17,7 +17,7 @@ function showSearchResult() {
                     subjectDiv.classList.add("subject");
                     var subjectLink = document.createElement("a");
                     subjectLink.textContent = subject.topic;
-                    subjectLink.href = "/konu_sayfası.html?id="+subject.id; // konu sayfası bittiğinde tekrardan düzenlenecek
+                    subjectLink.href = "/konu_sayfasi.html?id="+subject.id; // konu sayfası bittiğinde tekrardan düzenlenecek
                     subjectDiv.appendChild(subjectLink);
                     subjectResult.appendChild(subjectDiv);
                 });

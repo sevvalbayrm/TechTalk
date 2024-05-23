@@ -81,7 +81,7 @@ function displaySubjectAndUser(subject, user) {
 
     var userTitleP = document.createElement('p');
     userTitleP.classList.add('ünvan');
-    userTitleP.textContent = user.title;
+    userTitleP.textContent = "Konu Sahibi \n("+user.title+")"
     userTitleDiv.appendChild(userTitleP);
 
     msgUserDiv.appendChild(userIconDiv);

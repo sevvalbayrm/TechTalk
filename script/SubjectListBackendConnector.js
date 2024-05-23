@@ -19,7 +19,7 @@ function getSubject() {
                         newItem.innerHTML = `
                         <div class="user-icon"><img src="style/Default_pfp.svg.png" height="75px" width="75px"></img></div>
                         <div class="discuss-title">
-                            <a href="http://localhost:8081/konu_sayfası.html?id=${item.id}">
+                            <a href="http://localhost:8081/konu_sayfasi.html?id=${item.id}">
                                 ${item.topic}
                             </a>
                             <div class="minor">
