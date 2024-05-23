@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konu Oluştur</title>
+    <link rel="stylesheet" href="style/konu_olustur.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Konu Oluştur</h1>
+        <form id="createTopicForm">
+            <div class="form-group">
+                <label for="title">Konu Başlığı</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="title">Konu Tagi</label>
+                <input type="text" id="tag" name="tag" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Konu Açıklaması</label>
+                <textarea id="description" name="description" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Oluştur</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
