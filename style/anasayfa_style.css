@@ -183,7 +183,12 @@ footer p {
 }
 
 .reklam_container:hover {
-    box-shadow: 0 0 30px rgba(0,0,0,0.3); 
+    box-shadow: 0 0 50px rgba(0,0,0,0.3); 
+    position: fixed;
+    right: 30px;
+    top: 200px; 
+    width: 250px; 
+    height: 700px;
 }
 
 
