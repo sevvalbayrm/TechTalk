@@ -173,4 +173,25 @@
 footer p {
     margin: 0;
 }
+
+.reklam_container {
+  position: fixed;
+  right: 20px;
+  top: 200px; 
+  width: 200px; 
+  height: 300px;
+}
+
+.reklam_container:hover {
+    box-shadow: 0 0 20px rgba(0,0,0,0.3); 
+    transform: scale(1.05); 
+}
+
+
+.reklam {
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
   
