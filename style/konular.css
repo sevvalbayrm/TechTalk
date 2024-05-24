@@ -21,6 +21,18 @@
     text-align: start;
 }
 
+.titles >div{
+    width: 40%;
+    margin: auto;
+    border-collapse: separate;
+    display: table-cell;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    vertical-align: middle;
+    background-color: #f0f0f0;
+    
+}
+
 .block-body {
     display: inline-table;
     width: 100%;
