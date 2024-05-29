@@ -11,7 +11,7 @@ function sendToBackend(event) {
             var token = response.jwtToken
             if (xhr.status === 200 && response.success) {
                 localStorage.setItem('token', token);
-                 window.location.href = '/anasayfa.html'; 
+                 window.location.href = '/index.html'; 
             } else {
                 // Hata mesajını göster
                 document.getElementById('errorMessage').innerHTML = response.resultMessage;

@@ -17,9 +17,9 @@ function getSubject() {
                     month: '2-digit',
                     year: 'numeric',
                 });
-                const imgSrc = item.userIcon ? item.userIcon : "style/Default_pfp.svg.png";
+                const imgSrc = item.userProfilePhoto ? item.userProfilePhoto : "style/Default_pfp.svg.png";
                 newItem.innerHTML = `
-                    <div class="user-icon"><img src="${imgSrc}" height="75px" width="75px"></img></div>
+                    <div class="user-icon"><img src="data:image/jpeg;base64,${imgSrc}" height="75px" width="75px"></img></div>
                     <div class="discuss-title">
                         <a href="http://localhost:8081/konu_sayfasi.html?id=${item.id}">
                             ${item.topic}

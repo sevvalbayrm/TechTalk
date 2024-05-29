@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var currentUrl = window.location.href
     //giriş yaptıysa ana sayfaya yönlendir
     if(checkLoggedIn() && (currentUrl.includes("/giris") || currentUrl.includes("/kayit"))) {
-            window.location.href = 'anasayfa.html';
+            window.location.href = 'index.html';
          
     }
     //giriş yapmadıysa girişe yönlendir

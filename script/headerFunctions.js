@@ -1,7 +1,7 @@
 function logout() {
     localStorage.removeItem('token');
 
-    window.location.href = 'anasayfa.html';
+    window.location.href = 'index.html';
 }
 function includeNavbar() {
     fetch('header.html')

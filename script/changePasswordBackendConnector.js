@@ -28,7 +28,7 @@ function changePassword(event) {
                             icon: 'success',
                             confirmButtonText: 'Kapat'
                         }).then(function(){
-                            window.location.href = 'anasayfa.html';  
+                            window.location.href = 'index.html';  
                         })
                     }, 10);
                 } else {

@@ -48,8 +48,12 @@ function changePfp(file) {
             const username = parseJwt(localStorage.getItem('token')).sub;
             const formData = new FormData();
             formData.append('username', username);
-            formData.append('profilePhoto', blob, file.name);
+            formData.append('profilePhoto', blob);
 
+            formData.forEach (item => {
+                console.log(item);
+            
+            })
             const xhr = new XMLHttpRequest();
             xhr.open('PUT', 'http://localhost:8080/v1/profile/profile-photo', true);
             xhr.onload = function() {
@@ -100,9 +104,9 @@ function getProfile() {
                 year: 'numeric',
               })
             if (xhr.status === 200 && response.success) {
-                 if(user.profilePhotoUrl != null){
-                    console.log("Çalıştı");
-                    document.getElementById('profilePicture').src = user.profilePhotoUrl;
+                 if(user.profilePhoto != null){
+                    var base64Image = 'data:image/jpeg;base64,' + user.profilePhoto;
+                    document.getElementById('profilePicture').src = base64Image;
                 }
                 document.getElementById('name').innerHTML = user.name + " " + user.surname;
                 document.getElementById('username').innerHTML = response.user.username;
@@ -132,6 +136,7 @@ function parseJwt(token) {
     return JSON.parse(jsonPayload);
 }
 
+
 document.addEventListener('DOMContentLoaded', function() {
     getProfile();
     const fileInput = document.getElementById('profilePictureInput');
@@ -139,6 +144,18 @@ document.addEventListener('DOMContentLoaded', function() {
        const file = event.target.files[0];
        await changePfp(file);
     });
+    document.getElementById('profilePictureInput').addEventListener('change', function(e) {
+        var file = e.target.files[0];
+        var reader = new FileReader();
+    
+        reader.onloadend = function() {
+            document.getElementById('profilePicture').src = reader.result;
+        }
+    
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    }, false);
     
 
 });
