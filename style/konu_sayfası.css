@@ -88,7 +88,9 @@ li {
 .message-main{
     padding: 10px;
     position: absolute;
-    height: max-content;
+    width: 55%;
+    height: auto;
+    text-align: justify;
     
 }
 
@@ -96,10 +98,11 @@ li {
     padding-bottom: 10px;
     font-size: small;
     color: #B4B4B8;
+    
 }
 
 .like-section{
-    margin-top: 40%;
+    margin-top: 10px;
     display: flex;
     align-items: end;
 }
@@ -109,6 +112,7 @@ li {
     height: auto;
     margin-right: 5px;
     cursor: pointer;
+    
 }
 
 .like-count{
@@ -118,4 +122,36 @@ li {
 
 .like-image.liked {
     filter: grayscale(0);
+}
+
+.make-comment{
+    width: 70%;
+    height: auto;
+    margin-left: 50px;
+    margin-top: 20px;
+    min-height: 1px;
+    overflow-wrap: break-word;
+    margin-top: 10px;
+    border: solid 1px #B4B4B8;
+    border-radius: 5px;
+    font-weight: 100px;
+}
+
+.make-comment >div{
+    display: inline-block;
+}
+
+#comment-area{
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #F6F5F2;
+    margin-top: 2px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.send-button{
+    display: flex;
+    justify-content: end;
 }
