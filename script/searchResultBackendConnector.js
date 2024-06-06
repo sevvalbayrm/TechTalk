@@ -33,7 +33,7 @@ function showSearchResult() {
                     userDiv.classList.add("user");
                     var userLink = document.createElement("a");
                     userLink.href = "http://localhost:8081/profil.html?username="+user.username;
-                    userLink.textContent = user.name;
+                    userLink.textContent = user.username;
                     userDiv.appendChild(userLink);
                     usersResult.appendChild(userDiv);
                 });

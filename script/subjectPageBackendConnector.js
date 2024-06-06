@@ -63,10 +63,18 @@ function displaySubjectAndUser(subject, user) {
     var userIconDiv = document.createElement('div');
     userIconDiv.classList.add('user-ico');
 
-    var defaultImg = document.createElement('img');
-    defaultImg.src = 'style/Default_pfp.svg.png';
-    defaultImg.alt = 'default-pp';
-    userIconDiv.appendChild(defaultImg);
+    if(Boolean(user.profilePhoto)){
+        var userImg = document.createElement('img');
+        userImg.src = "data:image/jpeg;base64,"+user.profilePhoto;
+        userImg.alt = 'user-pp';
+        userIconDiv.appendChild(userImg);
+     }
+    else{
+        var defaultImg = document.createElement('img');
+        defaultImg.src = 'style/Default_pfp.svg.png';
+        defaultImg.alt = 'default-pp';
+        userIconDiv.appendChild(defaultImg);
+    }
 
     var usernameDiv = document.createElement('div');
     usernameDiv.classList.add('user-name');
@@ -144,10 +152,19 @@ function displayComment(comment, user) {
     var userIconDiv = document.createElement('div');
     userIconDiv.classList.add('user-ico');
 
-    var defaultImg = document.createElement('img');
-    defaultImg.src = 'style/Default_pfp.svg.png';
-    defaultImg.alt = 'default-pp';
-    userIconDiv.appendChild(defaultImg);
+     if(Boolean(user.profilePhoto)){
+        var userImg = document.createElement('img');
+        userImg.src = "data:image/jpeg;base64,"+user.profilePhoto;
+        userImg.alt = 'user-pp';
+        userIconDiv.appendChild(userImg);
+     }
+    else{
+        var defaultImg = document.createElement('img');
+        defaultImg.src = 'style/Default_pfp.svg.png';
+        defaultImg.alt = 'default-pp';
+        userIconDiv.appendChild(defaultImg);
+    }
+
 
     var usernameDiv = document.createElement('div');
     usernameDiv.classList.add('user-name');
@@ -285,12 +302,94 @@ function parseJwt(token) {
     return JSON.parse(jsonPayload);
 }
 
+function updateCommentsAndSubject(subjectId) {
+    getSubject(subjectId)
+        .then(response => {
+            var comments = response.comments;
+
+            var commentPromises = comments.map(comment => {
+                return getUser(comment.username).then(commentUser => ({ comment, commentUser }));
+            });
+
+            return Promise.all(commentPromises);
+        })
+        .then(commentData => {
+            var commentsSection = document.querySelectorAll('.message');
+            commentsSection.innerHTML = '';
+
+            commentData.forEach(({ comment, commentUser }) => {
+                displayComment(comment, commentUser);
+            });
+
+            updateSubjectLikeCount(subjectId);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}
+function addNewCommentData(user){
+    var commentAddPfp = document.getElementById('commentAddPfp')
+    var commentAddUsername = document.getElementById('commentAddUsername');
+    var commentAddTitle = document.getElementById('commentAddTitle');
+    var commentAddButton = document.getElementById('commentAddButton');
+    var commentAddDate = document.getElementById('commentAddDate');
+    var commentAddMessage = document.getElementById('comment-area');
+
+    var createdDate = new Date().toLocaleDateString('tr-TR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+    });
+    commentAddDate.textContent = createdDate;
+    commentAddUsername.textContent = user.username;
+    commentAddUsername.href = '/profil.html?username=' + user.username;
+
+    commentAddTitle.textContent = user.title;
+
+    if(Boolean(user.profilePhoto)){
+       commentAddPfp.src = "data:image/jpeg;base64,"+user.profilePhoto;
+     }
+    else{
+        commentAddPfp.src = 'style/Default_pfp.svg.png';
+    }
+
+    commentAddButton.addEventListener('click',function(event){
+        if(!commentAddMessage.value){
+            commentAddMessage.placeholder = "MESAJ ALANI BOŞ BIRAKILAMAZ!";
+            return;
+        }
+        addNewComment(user.username,commentAddMessage.value);
+        commentAddMessage.value = '';
+    })
+    
+
+}
+
+function addNewComment(username,message){
+ 
+    event.preventDefault();
+    var subjectId = window.location.href.split('?id=')[1];
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost:8080/v1/comment/create/'+subjectId, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            var response = JSON.parse(xhr.responseText);
+            if (xhr.status === 200 && response.success) {
+                updateCommentsAndSubject(subjectId);
+            } else {
+
+            }
+        }
+    };
+    xhr.send(JSON.stringify({ username, message,}));
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     getSubject()
         .then(response => {
             var subject = response.subject;
             var comments = response.comments;
-            console.log(response)
             return getUser(subject.username).then(user => ({ subject, comments, user }));
         })
         .then(({ subject, comments, user }) => {
@@ -310,4 +409,19 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => {
             console.error(error);
         });
+
+        if(Boolean(parseJwt(localStorage.getItem('token')).sub)){
+            getUser(parseJwt(localStorage.getItem('token')).sub).then(user => {
+                addNewCommentData(user);
+            })
+        }
+        else{
+            var commentAddButton = document.getElementById('commentAddButton');
+            var commentAddMessage = document.getElementById('comment-area');
+
+            commentAddMessage.placeholder = "YORUM YAPMAK İÇİN GİRİŞ YAPIN!";
+            commentAddMessage.disabled = true;
+            commentAddButton.disabled = true;
+
+        }
 });
