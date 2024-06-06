@@ -356,6 +356,7 @@ function addNewCommentData(user){
     commentAddButton.addEventListener('click',function(event){
         if(!commentAddMessage.value){
             commentAddMessage.placeholder = "MESAJ ALANI BOŞ BIRAKILAMAZ!";
+            commentAddMessage.classList.add('error');
             return;
         }
         addNewComment(user.username,commentAddMessage.value);
@@ -420,6 +421,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var commentAddMessage = document.getElementById('comment-area');
 
             commentAddMessage.placeholder = "YORUM YAPMAK İÇİN GİRİŞ YAPIN!";
+            commentAddMessage.classList.add('error');
             commentAddMessage.disabled = true;
             commentAddButton.disabled = true;
 
