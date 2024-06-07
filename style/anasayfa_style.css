@@ -33,58 +33,7 @@
     text-decoration: none;
   }
   
-  .search {
-    padding: 8px 15px;
-    margin-right: 50px;
-    border-radius: 15px;
-    background-color: #f0eaf4;
-  }
-  
-  .login {
-    padding: 8px 15px;
-    margin-right: 20px;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    display: inline-block;
-    
-  }
-
-  .logout {
-    padding: 8px 15px;
-    margin-right: 20px;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    display: inline-block;
-  }
-
-  .profile {
-    padding: 8px 15px;
-    margin-right: 20px;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    display: inline-block;
-
-  }
-
-  .login a{
-    text-decoration: none;
-    color: #EEEEEE;
-  }
-
-  .profile a{
-    text-decoration: none;
-    color: #EEEEEE;
-  }
-
-  .logout a{
-    text-decoration: none;
-    color: #EEEEEE;
-  }
-  
-
+ 
   .fa-solid  {
     padding-right: 5px;
     
@@ -94,26 +43,7 @@
     padding-right: 3px;
   }
 
-  .login :hover{
-    background-color: #7e4343;
-    padding: 10px 0 10px ;
-    border-radius: 15px;
-    
-  }
 
-  .logout :hover{
-    background-color: #7e4343;
-    padding: 10px 0 10px ;
-    border-radius: 15px;
-  }
-
-   .profile :hover{
-    background-color: #7e4343;
-    padding: 10px 0 10px ;
-    border-radius: 15px;
-  } 
-  
-  
   .sidebar {
     position: fixed;
     top:57px;
