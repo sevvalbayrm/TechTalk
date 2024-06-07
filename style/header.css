@@ -65,6 +65,18 @@
 
   }
 
+  .login :hover{
+    color: #a39292;
+  }
+
+  .logout :hover{
+    color: #a39292;
+  }
+
+  .profile :hover{
+    color: #a39292;
+  }
+
   .login a{
     text-decoration: none;
     color: #EEEEEE;
