@@ -36,7 +36,7 @@ function getLeaderboard(){
     .then(data =>{
         if(!Object.is(data,null)){
             var leaderboard = document.getElementById('liderlikListesi');
-            data.forEach((user, index) => {
+            data.slice(0,3).forEach((user, index) => {
                 const listItem = document.createElement('li');
                 const usernameA = document.createElement('a');
                 usernameA.href = "http://localhost:8081/profil.html?username="+user.username;

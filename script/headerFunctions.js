@@ -25,7 +25,7 @@ function includeNavbar() {
         }
         })
         .catch(error => {
-            console.error('Error fetching navbar:', error);
+            console.log('Error fetching navbar:', error);
         });
 }
 
