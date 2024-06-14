@@ -23,7 +23,7 @@
 }
 
 .titles >div{
-    width: 10%;
+    width: 50%;
     padding: 10px;
     margin: 0 auto;
     border-collapse: separate;
@@ -78,5 +78,5 @@ img{
 }
 
 .score{
-    text-align: start;
+    text-align: end;
 }
