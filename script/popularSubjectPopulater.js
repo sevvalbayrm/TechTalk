@@ -47,9 +47,36 @@ function getLeaderboard(){
         }
 })
 }
+
+
+function getPopularTags(){
+    fetch('http://localhost:8080/v1/subject/trendtag', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => response.json())
+    .then(data =>{
+        if(!Object.is(data,null)){
+            var popularTags = document.getElementById('populerEtiketListesi');
+            data.slice(0,3).forEach(tag => {
+                console.log(tag)
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.textContent = tag;
+                listItem.appendChild(link);
+                popularTags.appendChild(listItem);
+              });
+        }
+})
+
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     getPopularSubjects();
     getLeaderboard();
+    getPopularTags();
     
 
 });
