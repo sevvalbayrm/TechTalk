@@ -85,6 +85,20 @@
     padding-bottom: 5px; /* Çizgi ile metin arasında biraz boşluk bırakır */
   }
 
+  #liderlikListesi li {
+      margin-top: 20px;
+      margin-bottom: 10px; /* Her konu arasına biraz boşluk bırakır */
+      border-bottom: 1px solid #ccc; /* Her konunun altına bir çizgi ekler */
+      padding-bottom: 5px; /* Çizgi ile metin arasında biraz boşluk bırakır */
+  }
+
+  #populerEtiketListesi li {
+      margin-top: 20px;
+      margin-bottom: 10px; /* Her konu arasına biraz boşluk bırakır */
+      border-bottom: 1px solid #ccc; /* Her konunun altına bir çizgi ekler */
+      padding-bottom: 5px; /* Çizgi ile metin arasında biraz boşluk bırakır */
+  }
+
   .sidebar hr {
     width: 100%; /* Side bar genişliği kadar çizgi olacak şekilde ayarlanır */
     height: 1px;
