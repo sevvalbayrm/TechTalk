@@ -1,5 +1,9 @@
-body{
+body {
     background-color: #c0c0c0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .padding {
@@ -17,13 +21,13 @@ body{
     border: none;
     margin-bottom: 30px;
     width: 800px; 
+    background-color: #e0e0e0; /* Daha açık bir arka plan rengi */
     margin-top: 100px;
-    
 }
- .col-sm-8{
-    background-color: #c0c0c0;
- 
- }
+
+.col-sm-8 {
+    background-color: #e0e0e0; /* Daha açık bir arka plan rengi */
+}
 
 .m-r-0 {
     margin-right: 0px;
@@ -39,13 +43,10 @@ body{
 
 .bg-c-lite-green {
     background: linear-gradient(to right, #570202,#7e4343, #7e4343,#570202);
-   
-    
 }
 
 .user-profile {
     padding: 20px 0;
-
 }
 
 .card-block {
@@ -55,12 +56,14 @@ body{
 .profile-container {
     text-align: center;
 }
+
 .profileimage {
     width: 150px;
     height: 150px;
     object-fit: cover; /* Fotoğrafın kare boyutlarda kesilmesini sağlar */
     border-radius: 10px; /* Kare görünümü için bir border radius ayarı */
 }
+
 .profile-placeholder {
     width: 150px;
     height: 150px;
@@ -68,10 +71,10 @@ body{
     display: inline-block;
 }
 
-
 .file-input {
     display: none;
 }
+
 .file-label {
     display: inline-block;
     background-color: #7f4e4e;
@@ -82,29 +85,22 @@ body{
     margin-top: 5px;
 }
 
-
 h6 {
     font-size: 14px;
 }
 
-
-@media only screen and (min-width: 1400px){
-p {
-    font-size: 14px;
+.card .card-block p {
+    line-height: 25px;
 }
+
+@media only screen and (min-width: 1400px) {
+    p {
+        font-size: 14px;
+    }
 }
 
 .card-block {
     padding: 1.25rem;
-}
-
-.b-b-default {
-    border-bottom: 1px solid #A6B1E1;
-}
-
-
-.p-b-5 {
-    padding-bottom: 5px;
 }
 
 .card .card-block p {
@@ -112,7 +108,7 @@ p {
 }
 
 .text-muted {
-    color: #919aa3 ;
+    color: #919aa3;
 }
 
 .b-b-default {
@@ -132,14 +128,20 @@ p {
     margin-top: 20px;
 }
 
+.p-b-5 {
+    padding-bottom: 5px;
+}
+
 .m-b-10 {
     margin-bottom: 10px;
 }
 
 .changePasswordButton {
-    margin-top: 20px;
-    background-color: #e0dede;
-    color: #570202;
+    display: inline-block;
+    background-color: #7f4e4e;
+    color: #fff;
+    padding: 5px 10px;
     border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
 }
-
