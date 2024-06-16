@@ -93,14 +93,12 @@
  
 
   footer {
-    color: #EEEEEE;
-    padding: 15px 0;
+    color: black;
+    margin-top: 12.5px;
     text-align: center;
-    position: fixed;
     bottom: 0;
     width: 100%;
     z-index: 1000;
-    margin-top: 15px;
 }
 footer p {
     margin: 0;
