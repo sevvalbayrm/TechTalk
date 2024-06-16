@@ -12,6 +12,10 @@
     padding: 10px 20px;
     background:  #570202;
     color: #fff;
+    position: fixed; /* Sabit pozisyon */
+    top: 0; /* Üstte konumlandır */
+    width: 100%; /* Tam genişlikte */
+    z-index: 1000; /* Diğer içeriklerin üstünde kalmasını sağla */
 
   }
   
