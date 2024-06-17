@@ -195,3 +195,15 @@ textarea.error::placeholder{
     width: 250px; 
     height: 700px;
   }
+
+  footer {
+    color: black;
+    margin-top: 12.5px;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  footer p {
+    margin: 0;
+  }
