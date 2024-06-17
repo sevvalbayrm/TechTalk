@@ -165,3 +165,33 @@ textarea.error::placeholder{
     color: red;
     font-weight: bold;
 }
+
+.reklam_container {
+    position: fixed;
+    right: 20px;
+    top: 200px; 
+    width: 250px; 
+    height: 700px;
+  }
+  
+  .reklam_container:hover {
+      box-shadow: 0 0 50px rgba(0,0,0,0.3); 
+      position: fixed;
+      right: 30px;
+      top: 200px; 
+      width: 250px; 
+      height: 700px;
+  }
+  
+  
+  .reklam {
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .img{
+    position: fixed;
+    right: 30px;
+    top: 200px; 
+    width: 250px; 
+    height: 700px;
+  }
