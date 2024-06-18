@@ -146,6 +146,9 @@ li {
     padding: 10px;
     border: 2px solid #F6F5F2;
     margin-top: 2px;
+    resize: none;
+    width: 900px;
+    height: 80px;
     font-family: Arial, sans-serif;
     font-size: 14px;
     box-sizing: border-box;

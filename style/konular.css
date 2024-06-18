@@ -7,8 +7,8 @@
 }
 
 .block-container {
-    width: 70%; 
-    margin: auto;
+    width: 63%; 
+    margin: 50px auto;
     border: 1px solid #ccc; 
     border-collapse: collaps;
     border-radius: 5px;
@@ -16,8 +16,9 @@
 
 .block-header {
     margin: 0;
+    color: white;
     padding: 5px;
-    background-color: #F27BBD;
+    background-color: #570202;
     text-align: start;
 }
 
