@@ -1,6 +1,7 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -9,64 +10,39 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    font-family: Arial, sans-serif;
 }
 
-.padding {
-    padding: 3rem;
+.container {
+    padding: 20px;
 }
 
-.user-card-full {
-    margin: 0 auto; /* Sayfanın ortasında olmasını sağlar */
-}
-
-.card {
+.profile-card {
+    display: flex;
+    width: 800px;
+    background-color: #e0e0e0;
     border-radius: 5px;
-    -webkit-box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
-    box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
-    border: none;
-    margin-bottom: 30px;
-    width: 800px; 
-    background-color: #e0e0e0; /* Daha açık bir arka plan rengi */
-    margin-top: 100px;
+    box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
 }
 
-.col-sm-8 {
-    background-color: #e0e0e0; /* Daha açık bir arka plan rengi */
-}
-
-.m-r-0 {
-    margin-right: 0px;
-}
-
-.m-l-0 {
-    margin-left: 0px;
-}
-
-.user-card-full .user-profile {
-    border-radius: 5px 0 0 5px;
-}
-
-.bg-c-lite-green {
+.profile-sidebar {
     background: linear-gradient(to right, #570202,#7e4343, #7e4343,#570202);
-}
-
-.user-profile {
-    padding: 20px 0;
-}
-
-.card-block {
-    padding: 1.25rem;
+    padding: 20px;
+    border-radius: 5px 0 0 5px;
+    text-align: center;
+    color: white;
+    width: 300px;
 }
 
 .profile-container {
     text-align: center;
 }
 
-.profileimage {
+.profile-image {
     width: 150px;
     height: 150px;
-    object-fit: cover; /* Fotoğrafın kare boyutlarda kesilmesini sağlar */
-    border-radius: 10px; /* Kare görünümü için bir border radius ayarı */
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .profile-placeholder {
@@ -74,79 +50,65 @@ body {
     height: 150px;
     border-radius: 10px;
     display: inline-block;
+    overflow: hidden;
 }
 
-.file-input {
-    display: none;
+.profile-title {
+    margin-top: 20px;
+    font-size: medium;
 }
 
-.file-label {
-    display: inline-block;
-    background-color: #7f4e4e;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 5px;
+.profile-subtitle {
+    color: #ccc;
+    margin-top: 10px;
 }
 
-h6 {
-    font-size: 14px;
+.profile-details {
+    padding: 20px;
+    width: 500px;
 }
 
-.card .card-block p {
-    line-height: 25px;
+.section-title {
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #570202;
+    font-size: large;
 }
 
-@media only screen and (min-width: 1400px) {
-    p {
-        font-size: 14px;
-    }
+.profile-info {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.card-block {
-    padding: 1.25rem;
-}
-
-.card .card-block p {
-    line-height: 25px;
-}
-
-.text-muted {
-    color: #919aa3;
-}
-
-.b-b-default {
-    border-bottom: 1px solid #A6B1E1;
-}
-
-.f-w-600 {
-    font-weight: 600;
-    color: #000000;
-}
-
-.m-b-20 {
+.info-item {
+    width: 50%;
     margin-bottom: 20px;
 }
 
-.m-t-40 {
-    margin-top: 20px;
-}
-
-.p-b-5 {
-    padding-bottom: 5px;
-}
-
-.m-b-10 {
+.info-title {
+    font-size: medium;
     margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.info-text {
+    color: #919aa3;
+    font-size: small;
 }
 
 .changePasswordButton {
     display: inline-block;
-    background-color: #7f4e4e;
+    background-color: #570202;
     color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 10px 20px; /* Daha büyük padding */
+    border-radius: 10px;
     cursor: pointer;
-    margin-top: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s, box-shadow 0.3s; /* Geçiş efektleri eklendi */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Varsayılan gölge */
+}
+
+.changePasswordButton:hover {
+    background-color: #6e3f3f; /* Hover rengi */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Hover gölgesi */
 }

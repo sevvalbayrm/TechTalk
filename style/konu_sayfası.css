@@ -220,7 +220,10 @@ textarea.error::placeholder{
     bottom: 0;
     width: 100%;
     z-index: 1000;
+<<<<<<< HEAD
     /* position: fixed; */
+=======
+>>>>>>> a90ea5653cab1712723d69c019df437e9fde783e
   }
   footer p {
     margin: 0;
