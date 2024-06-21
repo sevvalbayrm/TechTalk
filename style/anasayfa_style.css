@@ -113,6 +113,7 @@
     bottom: 0;
     width: 100%;
     z-index: 1000;
+    /* position: fixed; */
 }
 footer p {
     margin: 0;
@@ -121,37 +122,37 @@ footer p {
 .reklam_container {
   position: fixed;
   right: 20px;
-  top: 200px; 
-  width: 250px; 
-  height: 700px;
+  top: 155px; 
+  width: 200px; 
+  height: 500px;
 }
 
 .reklam_container:hover {
-    box-shadow: 0 0 50px rgba(0,0,0,0.3); 
-    position: fixed;
-    right: 30px;
-    top: 200px; 
-    width: 250px; 
-    height: 700px;
+  box-shadow: 0 0 50px rgba(0,0,0,0.3); 
+  position: fixed;
+  right: 30px;
+  top: 155px; 
+  width: 200px; 
+  height: 500px;
 }
 
 
 .reklam {
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.img{
+.reklam img{
   position: fixed;
   right: 30px;
-  top: 200px; 
-  width: 250px; 
-  height: 700px;
+  top: 155px; 
+  width: 200px; 
+  height: 500px;
 }
 
 .konu_olustur {
   position: fixed;
-  right: 80px;
-  top: 100px;
+  right: 61px;
+  top: 85px;
   background-color: #7e4343;
   padding: 10px 20px;
   border-radius: 5px;
@@ -165,5 +166,7 @@ footer p {
   font-size: 20px;
 }
  
-  
+#konuOlusturBtn:hover{
+  color: #570202;
+} 
   

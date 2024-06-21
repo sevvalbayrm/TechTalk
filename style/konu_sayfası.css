@@ -5,11 +5,12 @@
     font-family: 'Poppins',sans-serif;
 }
 
+
 .subject-main{
     width: 70%;
     height: auto;
     margin-left: 50px;
-    margin-top: 20px;
+    margin-top: 70px;
 }
 
 .page-header{
@@ -66,6 +67,7 @@ li {
 .message-user{
     text-align: center;
     padding: 10px;
+    height: 150px;
     border-right: solid 1px #B4B4B8;
 }
 
@@ -91,11 +93,10 @@ li {
     width: 55%;
     height: auto;
     text-align: justify;
-    
 }
 
 .message-main header{
-    padding-bottom: 10px;
+    padding-bottom: 2px;
     font-size: small;
     color: #B4B4B8;
     
@@ -126,9 +127,8 @@ li {
 
 .make-comment{
     width: 70%;
-    height: auto;
+    height: 150px;
     margin-left: 50px;
-    margin-top: 20px;
     min-height: 1px;
     overflow-wrap: break-word;
     margin-top: 10px;
@@ -157,6 +157,20 @@ li {
 .send-button{
     display: flex;
     justify-content: end;
+}
+
+#commentAddButton{
+    background-color: #5b3a3a;
+    color: #F6F5F2;
+    border-radius: 3px;
+    width: 80px;
+    height: 25px;
+    cursor: pointer;
+    border: 2px;
+}
+
+#commentAddButton:hover{
+    background-color: #570202;
 }
 
 textarea::placeholder{
@@ -206,6 +220,10 @@ textarea.error::placeholder{
     bottom: 0;
     width: 100%;
     z-index: 1000;
+<<<<<<< HEAD
+    /* position: fixed; */
+=======
+>>>>>>> a90ea5653cab1712723d69c019df437e9fde783e
   }
   footer p {
     margin: 0;
