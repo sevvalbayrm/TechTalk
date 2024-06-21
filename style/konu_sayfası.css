@@ -206,7 +206,6 @@ textarea.error::placeholder{
     bottom: 0;
     width: 100%;
     z-index: 1000;
-    position: fixed;
   }
   footer p {
     margin: 0;

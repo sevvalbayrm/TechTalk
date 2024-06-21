@@ -1,27 +1,26 @@
 function getPopularSubjects() {
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://localhost:8080/v1/subject/popular', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            var response = JSON.parse(xhr.responseText);
+    fetch('http://localhost:8080/v1/subject/popular', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        if(!Object.is(data,null)){
             var populerKonularListesi = document.getElementById('populerKonularListesi');
-            if (xhr.status === 200) {
-                response.forEach(konu => {
-                    const listItem = document.createElement('li');
-                    const link = document.createElement('a');
-                    link.href = "http://localhost:8081/konu_sayfasi.html?id="+konu.id;
-                    link.textContent = konu.topic;
-                    listItem.appendChild(link);
-                    populerKonularListesi.appendChild(listItem);
-                  });
-            } else {
-                
-            }
+            data.slice(0,3).forEach(konu => {
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = "http://localhost:8081/konu_sayfasi.html?id="+konu.id;
+                link.textContent = konu.topic;
+                listItem.appendChild(link);
+                populerKonularListesi.appendChild(listItem);
+              });
         }
-    };
-    xhr.send();
+    
+    })
 };
 
 
@@ -61,7 +60,6 @@ function getPopularTags(){
         if(!Object.is(data,null)){
             var popularTags = document.getElementById('populerEtiketListesi');
             data.slice(0,3).forEach(tag => {
-                console.log(tag)
                 const listItem = document.createElement('li');
                 const link = document.createElement('a');
                 link.textContent = tag;
