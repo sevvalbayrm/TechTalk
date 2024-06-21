@@ -7,6 +7,7 @@ function includeNavbar() {
     fetch('header.html')
         .then(response => response.text())
         .then(data => {
+            
             document.getElementById('navbar-placeholder').innerHTML = data;
             if(isLoggedIn()){
                 var logoutButton = document.createElement("li");
