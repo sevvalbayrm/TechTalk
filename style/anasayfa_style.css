@@ -74,8 +74,8 @@
   
   /* Content */
   .content {
-    padding: 20px;
-       
+    padding-top: 20px;
+    ;
   }
 
   #populerKonularListesi li {
@@ -108,7 +108,7 @@
 
   footer {
     color: black;
-    /* margin-top: 12.5px; */
+    padding-bottom: 12.5px; 
     text-align: center;
     bottom: 0;
     width: 100%;

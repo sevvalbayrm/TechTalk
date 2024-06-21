@@ -8,9 +8,9 @@
 
 .block-container {
     width: 63%; 
-    margin: 50px auto;
+    margin: 50px auto 18px;
     border: 1px solid #ccc; 
-    border-collapse: collaps;
+    border-collapse: collapse;
     border-radius: 5px;
 }
 
