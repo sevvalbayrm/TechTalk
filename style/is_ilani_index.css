@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+ 
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #c0c0c0;
+  }
+  
+.reklam_container {
+  position: fixed;
+  right: 20px;
+  top: 200px; 
+  width: 250px; 
+  height: 700px;
+}
+
+.reklam_container:hover {
+    box-shadow: 0 0 50px rgba(0,0,0,0.3); 
+    position: fixed;
+    right: 30px;
+    top: 200px; 
+    width: 250px; 
+    height: 700px;
+}
+
+
+.reklam {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.img{
+  position: fixed;
+  right: 30px;
+  top: 200px; 
+  width: 250px; 
+  height: 700px;
+}
+
+.is_ilani_olustur {
+  position: fixed;
+  right: 80px;
+  top: 100px;
+  background-color: #7e4343;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.is_ilani_olustur_btn {
+  color: #EEEEEE;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+footer {
+    color: black;
+    margin-top: 12.5px;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    position: fixed;
+}
+footer p {
+    margin: 0;
+}

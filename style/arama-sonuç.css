@@ -85,3 +85,16 @@
     margin: 0;
     padding: 15px;
 }
+
+footer {
+    color: black;
+    padding-bottom: 12.5px; 
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    position: fixed;
+}
+footer p {
+    margin: 0;
+}

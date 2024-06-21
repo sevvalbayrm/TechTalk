@@ -21,6 +21,12 @@
     z-index: 1000; /* Diğer içeriklerin üstünde kalmasını sağla */
 
   }
+
+  #navbar-placeholder .logo-image{
+    width: auto;
+    height: 35px;
+    border-radius: 10px;
+  }
   
   #navbar-placeholder .logo a {
     text-decoration: none;

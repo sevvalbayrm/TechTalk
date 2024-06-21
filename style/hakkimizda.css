@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #c0c0c0;
+    font-family: 'Poppins', sans-serif;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.block-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+    padding: 20px;
+}
+
+.about-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.about-header h1 {
+    font-size: 2.5rem;
+    color: #570202;
+    margin-bottom: 10px;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+    gap: 15px; 
+}
+
+.about-card {
+    background-color: #e7e7e7;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center; /* Metni ortala */
+    position: relative; /* Pozisyonu ayarla */
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.about-card h2 {
+    font-size: x-large;
+    color: #570202;
+    position: absolute; /* Mutlak pozisyon */
+    top: 50%; /* Yukarıdan ortala */
+    left: 50%; /* Soldan ortala */
+    transform: translate(-50%, -50%); /* Ortalamak için translate kullan */
+    margin: 0;
+    opacity: 1; /* Başlık normalde görünür durumda */
+    transition: opacity 0.8s;
+}
+
+.about-card p {
+    font-size:medium;
+    color: #000000;
+    opacity: 0;
+    transition: opacity 0.8s;
+    text-align: left;
+    
+    
+}
+
+.about-card:hover p {
+    opacity: 1;
+}
+.about-card:hover h2 {
+    opacity: 0;
+}
+
+footer {
+    color: black;
+    margin-top: 12.5px;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    position: fixed;
+  }
+  footer p {
+    margin: 0;
+  }
+ 

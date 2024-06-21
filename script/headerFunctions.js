@@ -7,7 +7,6 @@ function includeNavbar() {
     fetch('header.html')
         .then(response => response.text())
         .then(data => {
-            
             document.getElementById('navbar-placeholder').innerHTML = data;
             if(isLoggedIn()){
                 var logoutButton = document.createElement("li");
@@ -62,9 +61,12 @@ function parseJwt(token) {
     return JSON.parse(jsonPayload);
 }
 
+
 document.addEventListener("DOMContentLoaded",function() {
     includeNavbar();
     var actionList = document.getElementById("actionList");
+
+
     
     document.addEventListener('keypress', function(event) {
         if (event.target.id === 'searchInput' && event.key === 'Enter') {
@@ -74,10 +76,6 @@ document.addEventListener("DOMContentLoaded",function() {
             window.location.href = "http://localhost:8081/arama_sonucları.html?search="+searchQuery;
         }
     });
-
-    
-    
-    
 });
 
 
