@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İş İlanı Oluştur</title>
     <link rel="stylesheet" href="/style/is_ilani_olustur.css">
-    <script src="script/jobAdvertisemıntFunc.js"></script>
+    <script src="script/jobCreateBackendConnector.js"></script>
     <script src="script/headerFunctions.js"></script>
+    <script src="/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="/node_modules/sweetalert2/dist/sweetalert2.min.css">  
 </head>
 <body>
     <div id="navbar-placeholder"></div>
@@ -35,6 +37,7 @@
             <div class="add-btn" id="addBtn">+</div>
         </div>
         <a href="#" class="submit-btn" id="submitBtn">Gönder</a>
+        <span id="errorMsg"></span>
     </div>
 </body>
 </html>
