@@ -12,11 +12,12 @@ body {
 }
 
 .container {
-    padding: 20px;
+    padding-top: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 100px;
+
 }
 
 .profile-card {
@@ -25,6 +26,7 @@ body {
     background-color: #e0e0e0;
     border-radius: 5px;
     box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+    
 }
 
 .profile-sidebar {
@@ -113,4 +115,30 @@ body {
 .changePasswordButton:hover {
     background-color: #6e3f3f; /* Hover rengi */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Hover gölgesi */
+}
+
+footer {
+    color: black;
+    padding-bottom: 12.5px; 
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    position: fixed;
+}
+footer p {
+    margin: 0;
+}
+
+.file-input {
+    display: none;
+}
+.file-label {
+    display: inline-block;
+    background-color: #7f4e4e;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
 }
