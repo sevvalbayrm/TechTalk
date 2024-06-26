@@ -40,7 +40,7 @@ body {
     text-align: center;
 }
 
-.profile-image {
+.profileimage {
     width: 150px;
     height: 150px;
     object-fit: cover;
