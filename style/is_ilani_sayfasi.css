@@ -7,7 +7,7 @@
 }
 
 
-.subject-main{
+.job-main{
     width: 70%;
     height: auto;
     margin-left: 50px;
@@ -39,7 +39,7 @@ ul{
     text-decoration: underline;
 }
 
-li {
+.minor li {
     list-style: none;
     display: inline-block;
     font-size: 14px;
@@ -69,23 +69,22 @@ li {
 
 .message-user {
     width: 20%; 
-    height: 100%;
-    vertical-align: middle;
-    padding: 5px; 
+    padding: 10px; 
     box-sizing: border-box; 
     text-align: center;
-    border-right: solid 1px #B4B4B8;
 }
 
 .message-main {
     width: 65%; 
     padding: 5px;
     box-sizing: border-box; 
+    border-left: solid 1px #B4B4B8;
 }
 
 .user-name a{
     text-decoration: none;
-    color: #B4B4B8;   
+    color: #B4B4B8;
+    
 }
 
 .user-name a:hover{
@@ -101,88 +100,12 @@ li {
 .message-main header{
     padding-bottom: 2px;
     font-size: small;
-    color: #B4B4B8;
-    
+    color: #B4B4B8; 
 }
 
-.like-section{
-    margin-top: 10px;
-    display: flex;
-    align-items: end;
-}
-
-.like-image{
-    width: 24px;
-    height: auto;
-    margin-right: 5px;
-    cursor: pointer;
-    
-}
-
-.like-count{
-    font-size: 16px;
-    
-}
-
-.like-image.liked {
-    filter: grayscale(0);
-}
-
-.make-comment{
-    width: 70%;
-    height: 150px;
-    margin-left: 50px;
-    min-height: 1px;
-    overflow-wrap: break-word;
-    margin-top: 10px;
-    border: solid 1px #B4B4B8;
-    border-radius: 5px;
-    font-weight: 100px;
-}
-
-.make-comment >div{
-    display: inline-block;
-}
-
-#comment-area{
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #F6F5F2;
-    margin-top: 2px;
-    resize: none;
-    width: 820px;
-    height: 80px;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    box-sizing: border-box;
-}
-
-.send-button{
-    display: flex;
-    justify-content: end;
-}
-
-#commentAddButton{
-    background-color: #5b3a3a;
-    color: #F6F5F2;
-    border-radius: 3px;
-    width: 80px;
-    height: 25px;
-    cursor: pointer;
-    border: 2px;
-}
-
-#commentAddButton:hover{
-    background-color: #570202;
-}
-
-textarea::placeholder{
-    color: #B4B4B8;
-    font-style: italic;
-}
-
-textarea.error::placeholder{
-    color: red;
+.requirement-header{
+    margin: 10px 0px 5px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -228,10 +151,11 @@ textarea.error::placeholder{
     color: black;
     margin-top: 12.5px;
     text-align: center;
+    position: fixed;
     bottom: 0;
     width: 100%;
-    z-index: 1000;
   }
+
   footer p {
     margin: 0;
   }

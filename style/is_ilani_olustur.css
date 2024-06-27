@@ -83,3 +83,9 @@ body {
     background-color: white;
     color: #570202;
 }
+
+#errorMsg{
+    font-style: italic;
+    color: red;
+    margin-left: 20px;
+}

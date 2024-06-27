@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 *{
-    
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
 }
@@ -57,4 +56,18 @@ body{
     padding: 5px;
     border-bottom: 1px solid #ccc;
     vertical-align: middle; 
+}
+
+.block-body a{
+    font-size: 17px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    color: #0E46A3;
+    text-decoration: none;
+    vertical-align: text-top;
+}
+
+.block-body a:hover{
+    text-decoration-line: underline;
 }

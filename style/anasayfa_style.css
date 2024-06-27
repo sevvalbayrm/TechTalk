@@ -115,7 +115,7 @@
     bottom: 0;
     width: 100%;
     z-index: 1000;
-    /* position: fixed; */
+    position: fixed;
 }
 footer p {
     margin: 0;
@@ -168,7 +168,7 @@ box-shadow: 0 0 10px rgba(0,0,0,0.1);
   font-size: 20px;
 }
  
-#konuOlusturBtn:hover{
-  color: #570202;
+.konu_olustur:hover{
+  background-color: #570202;
 } 
   

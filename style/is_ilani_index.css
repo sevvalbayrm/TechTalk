@@ -59,6 +59,10 @@
   font-size: 20px;
 }
 
+.is_ilani_olustur:hover{
+  background-color: #570202;
+}
+
 footer {
     color: black;
     margin-top: 12.5px;
