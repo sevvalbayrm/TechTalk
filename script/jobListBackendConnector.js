@@ -21,9 +21,9 @@ function getJobs(){
                     item.description = item.description.substring(0, 15) + '...';
                 }
                 newItem.innerHTML = `
-                    <div class="title"><a href=localhost:8081/is_ilani?id=${item.id}>${item.description}</a></div>       
+                    <div class="title"><a href=/is_ilani_sayfasi.html?id=${item.id}>${item.title}</a></div>       
                     <div class="job">${item.contactEmail}</div>
-                    <div class="company">${item.username}</div>
+                    <div class="company"><a href=http://localhost:8081/profil.html?username=${item.username}>${item.username}</div>
                     <!-- <div class="createdDate">${createdDate}</div> -->
                 `;
                 blockBody.appendChild(newItem);

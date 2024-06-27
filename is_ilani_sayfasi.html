@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/is_ilani_sayfasi.css">
-    <title>Document</title>
+    <script src="script/jobPageBackendConnector.js"></script>
+    <title>İş İlanı</title>
 </head>
 <body>
     <div id="navbar-placeholder"></div>
@@ -17,14 +18,14 @@
                 <ul class="minor-list">
                     <li>
                         <img class="employer-ico" src="style/user.png" alt="employer-ico">
-                        <a id="jobemployername" href="" class="minor-employer"></a>
+                        <a id="jobEmployerName" href="" class="minor-employer"></a>
                     </li>
                     <li>
                         <img class="clock-ico" src="style/clock.png" alt="clock-ico">
                         <a id="createdDate" class="minor-time"></a>
                     </li>
                     <li>
-                        <img class="tag-ico" src="style/tag.png" alt="clock-ico">
+                        <img class="tag-ico" src="style/mail.png" alt="clock-ico">
                         <a id="tag" class="minor-tag"></a>
                     </li>
                 </ul>
@@ -33,28 +34,21 @@
         <div class="message">
             <div class="message-user">
                 <div class="user-ico">
-                    <img src="style/Default_pfp.svg.png" alt="default-pp">
+                    <img id="employerPfp" src="style/Default_pfp.svg.png" alt="default-pp">
                 </div>
                 <div class="user-name">
-                    <a href="#">Ahmet_Talha</a>
+                    <a id="employerUsername" href="#"></a>
                 </div>
                 <div class="user-title">
-                    <p class="ünvan">Ünvan</p>
+                    <p id="employerTitle" class="ünvan"></p>
                 </div>
             </div>
             <div class="message-main">
                 <header>Tarih</header>
-                <div class="comment">Web projesinde backend tarafında çalışacak 
-                    java ve c# deneyimi olan çalışan aranıyor.</div>
+                <div id="jobDescription" class="comment"></div>
                 <div class="requirement">
                     <div class="requirement-header">Gereksinimler:</div>
-                    <ul>
-                        <li>İyi seviyede Java bilmeli</li>
-                        <li>Orta seviyede C# bilmeli</li>
-                        <li>Orta seviyede C# bilmeli</li>
-                        <li>Orta seviyede Sql bilmeli</li>
-                        <li>Orta seviyede Sql bilmeli</li>
-                        <li>Orta seviyede Sql bilmeli</li>
+                    <ul id="reqList">
                     </ul>
                 </div>
             </div>
