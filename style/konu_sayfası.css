@@ -23,12 +23,12 @@
     display: flex;
     gap: 10px;
     justify-content: flex-end;
+    
 }
 
 .crud_button img {
     height: 16px;
     width: auto;
-    
     vertical-align: middle;
 }
 
@@ -38,6 +38,7 @@
     color: white;
     border: 1px solid #E72929;
     border-radius: 5px;
+
 }
 
 .crud_button .edit_subject button {

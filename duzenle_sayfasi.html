@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konu Oluştur</title>
+    <link rel="stylesheet" href="style/konu_olustur.css">
+    <script src="/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="/node_modules/sweetalert2/dist/sweetalert2.min.css">     
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+    <div class="container">
+        <h1>Konu Düzenle</h1>
+        <form id="createTopicForm">
+            <div class="form-group">
+                <label for="title">Konu Başlığı</label>
+                <input type="text" id="edit_title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="title">Konu Etiketi</label>
+                <input type="text" id="edit_tag" name="tag" required>
+                <!-- BURASI INPUT FIELD DEĞİL DROPDOWN LIST OLACAK-->
+            </div>
+            <div class="form-group">
+                <label for="description">Konu Açıklaması</label>
+                <textarea id="edit_description" name="description" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <button id="createSubjectBtn">Düzenle</button>
+            </div>
+            <div>
+                <p id="error-message"></p>
+            </div>
+        </form>
+    </div>
+    <script src="script/headerFunctions.js"></script>
+    <script src="script/createSubjectBackendConnector.js"></script>
+    <footer>
+        <p>All rights are copyrighted © 2024 TechTalk Team.</p>
+      </footer>
+</body>
+
+</html>
+
