@@ -22,6 +22,7 @@
 .crud_button {
     display: flex;
     gap: 10px;
+    justify-content: flex-end;
 }
 
 .crud_button img {
@@ -110,13 +111,13 @@
     padding: 5px;
     box-sizing: border-box;
     text-align: center;
-    border-right: solid 1px #B4B4B8;
 }
 
 .message-main {
-    width: 65%;
+    width: 78%;
     padding: 5px;
     box-sizing: border-box;
+    border-left: solid 1px #B4B4B8;
 }
 
 .user-name a {
