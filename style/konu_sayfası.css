@@ -21,6 +21,47 @@
     border-radius: 5px; 
 }
 
+.crud_button img{
+    height: 16px;
+    width: auto;
+    vertical-align: middle;
+}
+
+.crud_button .remove_subject button{
+    font-size: 16px;
+    background-color: #C40C0C;
+    color: white;
+    border: 1px solid #E72929;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.crud_button .edit_subject button{
+    font-size: 16px;
+    background-color: #FF6500;
+    color: white;
+    border: 1px solid #FF8A08;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.p-title {
+    flex-grow: 1;
+}
+
+.crud_button {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
 .page-header h1{
     padding-left: 30px;
     margin: 0px;
