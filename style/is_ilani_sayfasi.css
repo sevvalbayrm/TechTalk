@@ -159,3 +159,44 @@ ul{
   footer p {
     margin: 0;
   }
+
+
+  .crud_button {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+
+}
+
+#jobEmployerName {
+    text-decoration: none;
+    color: black;
+}
+
+#jobEmployerName:hover{
+    text-decoration: underline;
+}
+
+.crud_button img {
+    height: 16px;
+    width: auto;
+    vertical-align: middle;
+}
+
+.crud_button .remove_subject button {
+    font-size: 16px;
+    background-color: #C40C0C;
+    color: white;
+    border: 1px solid #E72929;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.crud_button .edit_subject button {
+    font-size: 16px;
+    background-color: #FF6500;
+    color: white;
+    border: 1px solid #FF8A08;
+    border-radius: 5px;
+    cursor: pointer;
+}

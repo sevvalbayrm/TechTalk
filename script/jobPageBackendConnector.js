@@ -55,8 +55,120 @@ function getUser(username) {
     });
 }
 
+function getJob(){
+    var jobId =  window.location.href.split('?id=')[1];
+    return new Promise ((resolve,reject) => {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET','http://localhost:8080/v1/job/'+jobId,true);
+        xhr.setRequestHeader('Content-Type','application/json');
+        xhr.onreadystatechange = function(){
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    resolve(response);
+                } else {
+                    reject(new Error('Failed to fetch job'));
+                }
+            }
+        };
+        xhr.send();
+    })
+}
+
+async function isAdmin(){
+    var username = parseJwt(localStorage.getItem('token')).sub;
+    if(username){
+        try {
+            var user = await getUser(username);
+            if(user.userType === 'admin'){
+                return true;
+            }
+        }
+        catch {
+            console.log(error)
+            return false
+        }
+    }
+    return false;
+}
+
+async function isAuthor(){
+    var username = parseJwt(localStorage.getItem('token')).sub;
+    var jobId = window.location.href.split('?id=')[1];
+    if(username){
+        try {
+            var job = await getJob(jobId);
+            if(job.username === username){
+                return true;
+            }
+        }
+        catch (error){
+            console.log(error)
+            return false
+        }
+    }
+    return false;
+}
+
+function createJobButtons(){
+    var messageDiv = document.getElementById('messageDiv');
+
+    var crudButtonsDiv = document.createElement('div');
+    crudButtonsDiv.classList.add('crud_button');
+
+    var deleteJobDiv = document.createElement('div');
+    deleteJobDiv.classList.add('remove_subject');
+
+    var deleteJobButton = document.createElement('button');
+    deleteJobButton.textContent = 'İş İlanını Sil';
+    deleteJobButton.addEventListener('click', function(){
+        var id = window.location.href.split('?id=')[1];
+        console.log(id)
+    })
+
+    var deleteJobImg = document.createElement('img');
+    deleteJobImg.src = '/style/delete.png';
+
+    deleteJobButton.appendChild(deleteJobImg);
+    deleteJobDiv.appendChild(deleteJobButton);
+
+    var editButtonDiv = document.createElement('div');
+    editButtonDiv.classList.add('edit_subject');
+    var editButton = document.createElement('button');
+    editButton.textContent = 'İş İlanını Düzenle';
+    editButton.addEventListener('click', function(){
+        var id = window.location.href.split('?id=')[1];
+        console.log(id)
+    })
+    var editImg = document.createElement('img');
+    editImg.src = '/style/pen.png';
+    editButton.appendChild(editImg);
+    editButtonDiv.appendChild(editButton);
+
+
+
+
+
+    Promise.all([isAdmin(), isAuthor()]).then(values => {
+        const [isAdminRole, isAuthor] = values;
+        if(isAuthor){
+            crudButtonsDiv.appendChild(editButtonDiv);
+        }
+        if(isAdminRole || isAuthor){
+            crudButtonsDiv.appendChild(deleteJobDiv);
+            messageDiv.appendChild(crudButtonsDiv);
+        }
+    })
+
+
+
+    
+
+}
+
 
 
 document.addEventListener('DOMContentLoaded',function (){
     getJobData();
+    createJobButtons();
 });
