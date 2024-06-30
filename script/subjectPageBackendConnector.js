@@ -37,6 +37,26 @@ function getSubject() {
     });
 }
 
+function getComment(commentId){
+    return new Promise((resolve, reject) => {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost:8080/v1/comment/' + commentId, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    resolve(response);
+                } else {
+                    reject(new Error('Failed to fetch comment'));
+                }
+            }
+        };
+        xhr.send();
+    });
+
+}
+
 function displaySubjectAndUser(subject, user) {
     var createdDate = new Date(subject.createdDate).toLocaleDateString('tr-TR', {
         day: '2-digit',
@@ -293,6 +313,7 @@ function displayComment(comment, user) {
     editButton.appendChild(editImg);
     editButton.addEventListener('click', function(){
         openEditPopup();
+        editPopupFunctions(comment.id);
     })
     editCommentDiv.appendChild(editButton);
 
@@ -408,7 +429,7 @@ function updateCommentsAndSubject(subjectId) {
             console.log(commentData);
             var commentsSection = document.querySelectorAll('.message');
             commentsSection.forEach((section, index) => {
-                if (index !== 0) { // Skip the first element
+                if (index !== 0) { 
                     section.innerHTML = '';
                     section.style.display = "none";
                 }
@@ -532,10 +553,6 @@ function removeComment(commentId){
 }
 }
 
-function editComment(commentId){
-    console.log(commentId);
-}
-
 async function isAdmin(){
     var username = parseJwt(localStorage.getItem('token')).sub;
     if(username){
@@ -595,7 +612,46 @@ function openEditPopup() {
     popup.style.display = "block";
     setTimeout(() => {
         popup.classList.add("show");
-    }, 10); 
+    }, 10);      
+}
+
+function editPopupFunctions(commentId) {
+    getComment(commentId).then(comment => {
+        console.log(comment);
+        document.getElementById('editCommentArea').value = comment.message;
+
+        var editCommentButton = document.getElementById('editPopupSaveButton');
+
+        var newEditCommentButton = editCommentButton.cloneNode(true);
+        editCommentButton.parentNode.replaceChild(newEditCommentButton, editCommentButton);
+
+        newEditCommentButton.addEventListener('click', function saveCommentEdit() {
+            var newMessage = document.getElementById('editCommentArea').value;
+
+            fetch('http://localhost:8080/v1/comment/update', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    commentId: commentId,
+                    message: newMessage
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                swal.fire({
+                    title: 'Başarılı!',
+                    text: "Yorum başarıyla güncellendi",
+                    icon: 'success',
+                    confirmButtonText: 'Kapat'
+                }).then(function () {
+                    updateCommentsAndSubject(window.location.href.split('?id=')[1]);
+                    closeEditPopup();
+                })
+            });
+        });
+    });
 }
 
 function closeEditPopup() {
