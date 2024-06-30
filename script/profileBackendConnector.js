@@ -72,6 +72,64 @@ function changePfp(file) {
             console.error("Failed to convert file to Blob:", error);
         });
 }
+
+function createBanButton(username){
+    var buttonOutsideDiv = document.createElement('div');
+    buttonOutsideDiv.classList.add('button-outside');
+
+    var banButton = document.createElement('button');
+    banButton.textContent = 'Kullanıcıyı Yasakla';
+
+    var buttonImg = document.createElement('img');
+    buttonImg.src = 'style/ban_hammer.png';
+
+    banButton.appendChild(buttonImg);
+    banButton.addEventListener('click', function(){
+        banUser(username)
+    })
+    buttonOutsideDiv.appendChild(banButton);
+
+    var navbarPlaceholder = document.getElementById('navbar-placeholder');
+    navbarPlaceholder.parentNode.insertBefore(buttonOutsideDiv,navbarPlaceholder.nextSibling);
+}
+
+function banUser(username){
+    var xhr = new XMLHttpRequest();
+    xhr.open('PUT', 'http://localhost:8080/v1/profile/ban/' + username, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                alert('Kullanıcı başarıyla yasaklandı.');
+                window.location.href = 'index.html';
+            } else {
+                alert('Kullanıcı yasaklanırken bir hata oluştu.');
+            }
+        }
+    };
+    xhr.send();
+    }
+
+function getUser() {
+    var username = parseJwt(localStorage.getItem('token')).sub;
+    return new Promise((resolve, reject) => {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost:8080/v1/profile/' + username, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    resolve(response.user);
+                } else {
+                    reject(new Error('Failed to fetch user'));
+                }
+            }
+        };
+        xhr.send();
+    });
+}
+
 function getProfile() {
     var currentUrl = window.location.href
     var username = currentUrl.split("?username=")[1];
@@ -89,6 +147,13 @@ function getProfile() {
         createPfpChangeButton();
         createChangePasswordButton();
     }
+    getUser().then(user => {
+        if(user.userType === 'admin' && user.username !== username){
+            createBanButton(username);
+        }
+    })
+
+
     
 
     var xhr = new XMLHttpRequest();
@@ -114,6 +179,7 @@ function getProfile() {
                 document.getElementById('createdate').innerHTML = createdDate;
                 document.getElementById('point').innerHTML = user.point;
                 document.getElementById('title').innerHTML = user.title;
+
             } else {
                 document.getElementById('errormsg').innerHTML = ""
             }
