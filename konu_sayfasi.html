@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/konu_sayfası.css">
     <script src="script/subjectPageBackendConnector.js"></script>
-
+    <script src="script/subjectPagePopUp.js"></script>
     <title>Konu</title>
 </head>
 <body>
@@ -15,6 +15,20 @@
             <div class="header">
                 <div class="p-title">
                     <h1 id="subjectTopic"></h1>
+                </div>
+                <div class="crud_button">
+                    <div class="remove_subject">
+                        <button>
+                            Sil
+                            <img src="style/delete.png">
+                        </button>
+                    </div>
+                    <div class="edit_subject">
+                        <button onclick="openEditPopup()">
+                            Düzenle
+                            <img src="style/pen.png">
+                        </button>
+                    </div>
                 </div>
             </div>
             
@@ -60,20 +74,20 @@
                     <div class="remove_subject">
                         <button>
                             Sil
-                            <img src="style/delete.png" >
+                            <img src="style/delete.png">
                         </button>
                     </div>
-                     <div class="edit_subject">
-                        <button>
+                    <div class="edit_subject">
+                        <button onclick="openEditPopup()">
                             Düzenle
-                            <img src="style/pen.png" >
+                            <img src="style/pen.png">
                         </button>
                     </div>
                 </div>
             </div>
         </div> -->
     </div>
-    
+
     <div class="make-comment">
         <div class="message-user">
             <div class="user-ico">
@@ -97,17 +111,33 @@
         </div>
     </div>
 
-     <div class="reklam_container">
+    <div class="reklam_container">
         <div class="reklam">
-          <a href="https://www.youtube.com/@ABARoll" target="_blank"><img src="style/reklam.gif" class="img"></a>
+            <a href="https://www.youtube.com/@ABARoll" target="_blank"><img src="style/reklam.gif" class="img"></a>
         </div>
     </div>
-
-    
 
     <footer>
         <p>All rights are copyrighted © 2024 TechTalk Team.</p>
     </footer>
-      <script src="script/headerFunctions.js"></script>
+
+    <div id="editPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeEditPopup()">&times;</span>
+            <div class="popup_title">
+                <span>Yorumu Düzenle</span>
+            </div>
+            <textarea class="editCommentArea" id="editCommentArea" placeholder="Yorumunuzu düzenleyin..."></textarea>
+            <div class="editBtnArea" >
+                <button class="editBtn" onclick="saveEditedComment()">Düzenle
+                    <img src="style/pen.png">
+                </button>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="script/headerFunctions.js"></script>
+    <script src="script/editPopup.js"></script>
 </body>
 </html>
