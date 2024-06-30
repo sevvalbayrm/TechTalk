@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İş İlanı Oluştur</title>
+    <link rel="stylesheet" href="/style/is_ilani_olustur.css">
+    <script src="script/jobCreateBackendConnector.js"></script>
+    <script src="script/headerFunctions.js"></script>
+    <script src="/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="/node_modules/sweetalert2/dist/sweetalert2.min.css">  
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <div class="container">
+        <div class="header">İş İlanını Düzenle</div>
+        <div class="form-group">
+            <label for="baslik">Başlık</label>
+            <input type="text" id="baslik" name="baslik">
+        </div>
+        <div class="form-group">
+            <label for="aciklama">Açıklama</label>
+            <input type="text" id="aciklama" name="aciklama">
+        </div>
+        <div class="form-group">
+            <label for="email">İletişim (Email)</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div class="form-group">
+            <label for="gereksinimler">Gereksinimler</label>
+            <div id="gereksinimler">
+                <div class="gereksinim-item">
+                    <span>1. </span>
+                    <input type="text" name="gereksinim[]" class="gereksinim">
+                </div>
+            </div>
+            <div class="add-btn" id="addBtn">+</div>
+        </div>
+        <a href="#" class="submit-btn" id="submitBtn">Düzenle</a>
+        <span id="errorMsg"></span>
+    </div>
+</body>
+</html>
