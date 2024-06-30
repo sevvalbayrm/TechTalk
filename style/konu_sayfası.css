@@ -113,13 +113,14 @@
     padding: 5px;
     box-sizing: border-box;
     text-align: center;
+    border-right: solid 1px #B4B4B8;
 }
 
 .message-main {
     width: 78%;
     padding: 5px;
     box-sizing: border-box;
-    border-left: solid 1px #B4B4B8;
+    
 }
 
 .user-name a {
