@@ -246,6 +246,7 @@ footer {
     bottom: 0;
     width: 100%;
     z-index: 1000;
+    position: fixed;
 }
 
 footer p {
@@ -307,7 +308,7 @@ footer p {
     padding: 20px;
     border: 1px solid #888;
     width: 60%;
-    height: 70%; 
+    height: 50%; 
     transition: opacity 0.5s ease, transform 0.5s ease;
     opacity: 0;
     transform: translateY(-50px);

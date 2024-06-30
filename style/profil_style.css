@@ -11,12 +11,36 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.button-outside {
+    position: absolute;
+    top: 188px;
+    left: 369px;
+}
+
+.button-outside button{
+    background-color: black;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.button-outside img{
+    width: 18px;
+    height: auto;
+    vertical-align: middle;
+}
+
 .container {
     padding-top: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 80px;
 
 }
 
