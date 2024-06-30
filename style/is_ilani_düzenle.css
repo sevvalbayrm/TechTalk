@@ -71,7 +71,7 @@ body {
     text-decoration: none;
 }
 
-#submitBtn{
+#submitEditBtn{
     text-decoration: none;
     border: 1px solid #570202;
     border-radius: 3px;
@@ -79,7 +79,7 @@ body {
     color: white;
 }
 
-#submitBtn:hover{
+#submitEditBtn:hover{
     background-color: white;
     color: #570202;
 }

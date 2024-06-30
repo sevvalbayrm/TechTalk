@@ -123,7 +123,7 @@ function createJobButtons(){
     deleteJobButton.textContent = 'İş İlanını Sil';
     deleteJobButton.addEventListener('click', function(){
         var id = window.location.href.split('?id=')[1];
-        console.log(id)
+        deleteJob(id);
     })
 
     var deleteJobImg = document.createElement('img');
@@ -138,16 +138,12 @@ function createJobButtons(){
     editButton.textContent = 'İş İlanını Düzenle';
     editButton.addEventListener('click', function(){
         var id = window.location.href.split('?id=')[1];
-        console.log(id)
+        window.location.href = 'is_ilani_duzenle.html?id='+id;
     })
     var editImg = document.createElement('img');
     editImg.src = '/style/pen.png';
     editButton.appendChild(editImg);
     editButtonDiv.appendChild(editButton);
-
-
-
-
 
     Promise.all([isAdmin(), isAuthor()]).then(values => {
         const [isAdminRole, isAuthor] = values;
@@ -158,12 +154,33 @@ function createJobButtons(){
             crudButtonsDiv.appendChild(deleteJobDiv);
             messageDiv.appendChild(crudButtonsDiv);
         }
-    })
+    }) 
 
+}
 
-
-    
-
+function deleteJob(jobId){
+    var confirmBox = confirm('İş ilanını silmek istediğinize emin misiniz?');
+    if(!confirmBox){
+        return;
+    }
+    var xhr = new XMLHttpRequest();
+    xhr.open('DELETE','http://localhost:8080/v1/job/delete/'+jobId,true);
+    xhr.setRequestHeader('Content-Type','application/json');
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'İş İlanı Başarıyla Silindi',
+                    showConfirmButton: false,
+                    timer: 2500                
+                })
+            } else {
+                console.log('Failed to delete job');
+            }
+        }
+    };
+    xhr.send();
 }
 
 

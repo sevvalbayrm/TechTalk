@@ -13,8 +13,7 @@ function sendToBackend(event) {
                 localStorage.setItem('token', token);
                  window.location.href = '/index.html'; 
             } else {
-                // Hata mesajını göster
-                document.getElementById('errorMessage').innerHTML = response.resultMessage;
+                document.getElementById('errorMessage').innerHTML = response.resultMessage.split(';')[1];
                 errorMessage.style.display = 'block';
             }
         }
