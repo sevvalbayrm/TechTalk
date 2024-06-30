@@ -292,7 +292,7 @@ function displayComment(comment, user) {
     editImg.src = 'style/pen.png';
     editButton.appendChild(editImg);
     editButton.addEventListener('click', function(){
-        // BURASI SONRA DOLDURULACAK
+        openEditPopup();
     })
     editCommentDiv.appendChild(editButton);
 
@@ -426,7 +426,7 @@ function updateCommentsAndSubject(subjectId) {
             updateSubjectLikeCount(subjectId);
         })
         .catch(error => {
-            console.error(error);
+            console.log(error);
         });
 }
 
@@ -584,9 +584,36 @@ function isCommentAuthor(commentId) {
         return username === data.username;        
     })
     .catch(error => {
-        console.error('Error:', error);
+        console.log('Error:', error);
         return false; 
     });
+}
+
+
+function openEditPopup() {
+    const popup = document.getElementById("editPopup");
+    popup.style.display = "block";
+    setTimeout(() => {
+        popup.classList.add("show");
+    }, 10); 
+}
+
+function closeEditPopup() {
+    const popup = document.getElementById("editPopup");
+    popup.classList.remove("show");
+
+    setTimeout(() => {
+        if (!popup.classList.contains("show")) {
+            popup.style.display = "none";
+        }
+    }, 500); 
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById("editPopup");
+    if (event.target == modal) {
+        closeEditPopup();
+    }
 }
 
 
@@ -612,7 +639,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         })
         .catch(error => {
-            console.error(error);
+            console.log(error);
         });
 
         if(Boolean(parseJwt(localStorage.getItem('token')).sub)){
