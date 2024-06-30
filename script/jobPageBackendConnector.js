@@ -177,7 +177,7 @@ function deleteJob(jobId){
                 })
                 .then(
                     function(){
-                        window.location.href = 'is_ilanlari.html';
+                        window.location.href = 'is_ilani_index.html';
                     }
                 
                 )
