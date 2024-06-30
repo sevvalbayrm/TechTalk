@@ -175,6 +175,12 @@ function deleteJob(jobId){
                     showConfirmButton: false,
                     timer: 2500                
                 })
+                .then(
+                    function(){
+                        window.location.href = 'is_ilanlari.html';
+                    }
+                
+                )
             } else {
                 console.log('Failed to delete job');
             }
