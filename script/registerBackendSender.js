@@ -7,6 +7,11 @@ function sendToBackend(event) {
     var username = document.getElementById('username').value;
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirmPassword').value
+
+    if(password != confirmPassword){
+        return false;
+    }
          
 
     // Backend'e POST isteği gönder

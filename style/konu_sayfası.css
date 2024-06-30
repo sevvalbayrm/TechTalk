@@ -38,7 +38,7 @@
     color: white;
     border: 1px solid #E72929;
     border-radius: 5px;
-
+    cursor: pointer;
 }
 
 .crud_button .edit_subject button {
@@ -47,6 +47,7 @@
     color: white;
     border: 1px solid #FF8A08;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .header {

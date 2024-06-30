@@ -116,6 +116,40 @@ function displaySubjectAndUser(subject, user) {
         subjectLike(subject.id);
     });
 
+    var crudButtonDiv = document.createElement('div');
+    crudButtonDiv.classList.add('crud_button');
+
+    var removeSubjectDiv = document.createElement('div');
+    removeSubjectDiv.classList.add('remove_subject');
+
+    var deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Konuyu Sil';
+    deleteButton.addEventListener('click', function() {
+        removeSubject(subject.id);
+    })
+
+    var removeImg = document.createElement('img');
+    removeImg.src = 'style/delete.png';
+
+    deleteButton.appendChild(removeImg);
+    removeSubjectDiv.appendChild(deleteButton);
+
+    var editSubjectDiv = document.createElement('div');
+    editSubjectDiv.classList.add('edit_subject');
+
+    var editButton = document.createElement('button');
+    editButton.textContent = 'Konuyu Düzenle';
+
+    var editImg = document.createElement('img');
+    editImg.src = 'style/pen.png';
+    editButton.appendChild(editImg);
+    editButton.addEventListener('click', function(){
+        window.location.href = 'duzenle_sayfasi.html?id='+subject.id;
+    })
+    editSubjectDiv.appendChild(editButton);
+
+    crudButtonDiv.appendChild(removeSubjectDiv);
+
     likeSectionDiv.appendChild(likeImg);
 
     var likeCountSpan = document.createElement('span');
@@ -128,8 +162,20 @@ function displaySubjectAndUser(subject, user) {
     msgMainDiv.appendChild(commentDiv);
     msgMainDiv.appendChild(likeSectionDiv);
 
+    Promise.all([isAdmin(), isAuthor()]).then(values => {
+        var [isAdminRole, isAuthorRole] = values;
+        if(isAuthorRole === true){
+            crudButtonDiv.appendChild(editSubjectDiv);
+        }
+        if (isAdminRole === true || isAuthorRole === true) {
+            msgMainDiv.appendChild(crudButtonDiv);
+        }        
+    });
+
     commentBoxDiv.appendChild(msgMainDiv);
     subjectMain.appendChild(commentBoxDiv);
+
+
 }
 
 function displayComment(comment, user) {
@@ -215,9 +261,54 @@ function displayComment(comment, user) {
 
     likeSectionDiv.append(likeCountSpan);
 
+
+    var crudButtonDiv = document.createElement('div');
+    crudButtonDiv.classList.add('crud_button');
+    crudButtonDiv.setAttribute('data-comment-id', comment.id);
+
+    var removeCommentDiv = document.createElement('div');
+    removeCommentDiv.classList.add('remove_subject');
+
+    var deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Yorumu Sil';
+    deleteButton.addEventListener('click', function() {
+        removeComment(comment.id);
+    })
+
+    var removeImg = document.createElement('img');
+    removeImg.src = 'style/delete.png';
+
+    deleteButton.appendChild(removeImg);
+    removeCommentDiv.appendChild(deleteButton);
+    crudButtonDiv.appendChild(removeCommentDiv);
+
+    var editCommentDiv = document.createElement('div');
+    editCommentDiv.classList.add('edit_subject');
+
+    var editButton = document.createElement('button');
+    editButton.textContent = 'Yorumu Düzenle';
+
+    var editImg = document.createElement('img');
+    editImg.src = 'style/pen.png';
+    editButton.appendChild(editImg);
+    editButton.addEventListener('click', function(){
+        // BURASI SONRA DOLDURULACAK
+    })
+    editCommentDiv.appendChild(editButton);
+
     msgMainDiv.appendChild(header);
     msgMainDiv.appendChild(commentDiv);
     msgMainDiv.appendChild(likeSectionDiv);
+    Promise.all([isAdmin(), isCommentAuthor(comment.id)]).then(values => {
+        const [isAdminRole, isAuthor] = values;
+        if(isAuthor){
+            crudButtonDiv.appendChild(editCommentDiv);
+        }
+        if (isAdminRole === true || isAuthor) {
+            msgMainDiv.appendChild(crudButtonDiv);
+        }
+    });
+
 
     commentBoxDiv.appendChild(msgMainDiv);
     subjectMain.appendChild(commentBoxDiv);
@@ -314,8 +405,19 @@ function updateCommentsAndSubject(subjectId) {
             return Promise.all(commentPromises);
         })
         .then(commentData => {
+            console.log(commentData);
             var commentsSection = document.querySelectorAll('.message');
-            commentsSection.innerHTML = '';
+            commentsSection.forEach((section, index) => {
+                if (index !== 0) { // Skip the first element
+                    section.innerHTML = '';
+                    section.style.display = "none";
+                }
+            });
+            Array.from(commentsSection).forEach(section => {
+                if (section.style.display === "none") {
+                    section.remove();
+                }
+            });
 
             commentData.forEach(({ comment, commentUser }) => {
                 displayComment(comment, commentUser);
@@ -327,6 +429,7 @@ function updateCommentsAndSubject(subjectId) {
             console.error(error);
         });
 }
+
 function addNewCommentData(user){
     var commentAddPfp = document.getElementById('commentAddPfp')
     var commentAddUsername = document.getElementById('commentAddUsername');
@@ -385,6 +488,107 @@ function addNewComment(username,message){
     };
     xhr.send(JSON.stringify({ username, message,}));
 }
+
+function removeSubject(subjectId){
+    var alertSelection = confirm('Silmek istediğinize emin misiniz?');
+    console.log(alertSelection);
+    if(alertSelection === true){
+    var xhr = new XMLHttpRequest();
+    xhr.open('DELETE', 'http://localhost:8080/v1/subject/delete/'+subjectId, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            var response = JSON.parse(xhr.responseText);
+            if (xhr.status === 200 && response === true) {
+                    window.location.href = "index.html";
+            } else {
+            }
+        }
+    };
+    xhr.send();
+}
+}
+
+function removeComment(commentId){
+    var alertSelection = confirm('Silmek istediğinize emin misiniz?');
+    console.log(alertSelection);
+    if(alertSelection === true){
+    var xhr = new XMLHttpRequest();
+    xhr.open('DELETE', 'http://localhost:8080/v1/comment/delete/'+commentId, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            var response = JSON.parse(xhr.responseText);
+            if (xhr.status === 200 && response === true) {
+                
+                
+                    updateCommentsAndSubject(window.location.href.split('?id=')[1]);
+                
+            } else {
+            }
+        }
+    };
+    xhr.send();
+}
+}
+
+function editComment(commentId){
+    console.log(commentId);
+}
+
+async function isAdmin(){
+    var username = parseJwt(localStorage.getItem('token')).sub;
+    if(username){
+        try {
+            var user = await getUser(username);
+            if(user.userType === 'admin'){
+                return true;
+            }
+        }
+        catch {
+            console.log(error)
+            return false
+        }
+    }
+    return false;
+}
+
+async function isAuthor(){
+    var username = parseJwt(localStorage.getItem('token')).sub;
+    var subjectId = window.location.href.split('?id=')[1];
+    if(username){
+        try {
+            var subject = await getSubject(subjectId);
+            if(subject.subject.username === username){
+                return true;
+            }
+        }
+        catch (error){
+            console.log(error)
+            return false
+        }
+    }
+    return false;
+}
+
+function isCommentAuthor(commentId) {
+    var username = parseJwt(localStorage.getItem('token')).sub;
+    return fetch('http://localhost:8080/v1/comment/' + commentId, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        return username === data.username;        
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        return false; 
+    });
+}
+
 
 document.addEventListener('DOMContentLoaded', function () {
     getSubject()
